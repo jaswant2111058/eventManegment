@@ -18,6 +18,7 @@
     text-align: center;
     border-radius: 10px;
     margin-top: 30px;
+    background: rgba(46, 138, 223, 0.078)
  
 }
 .signupbutton{
@@ -66,7 +67,7 @@
 .login{
     display: flex;
     overflow-x:hidden ;
-    background-image:url('../../../public/images/background.jpg')  ;
+    background-image:url('../../../public/images/bg3.jpg')  ;
     background-repeat: no-repeat;
     background-size: 100vw 100vh;
 }
@@ -79,6 +80,8 @@
     height: 60vh;
     border-radius: 10px;
     margin-top: 30px;
+    background: rgba(46, 138, 223, 0.078)
+ 
 }
 .loginwrap{
    

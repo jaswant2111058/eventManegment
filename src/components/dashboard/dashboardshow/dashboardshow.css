@@ -3,20 +3,46 @@
     padding: 30px;
     display: flex;
     justify-content: center;
+    
+    
 }
-.eventCardsWraper{
 
-
-}
 .eventcards1{
     width:  30vw;
-    background-color: burlywood;
-    border-radius: 10px;
-    padding:5px 10px;
+    background-color: rgba(66, 159, 231, 0.231);
+    border-radius: 5px;
+    padding:15px 10px 10px 15px;
     margin: 20px;
+    cursor: pointer;
 }
 .eventDetails{
     
     margin: 20px;
 
+}
+.eventName{
+    display: flex;
+    justify-content: space-between;
+    font-size: larger;
+}
+.timeday{
+     font-size: small;
+     color: gray;
+     margin-top: 5px;
+     margin-bottom: 15px;
+}
+.venue_Status{
+    display: flex;
+    justify-content: space-between;
+}
+.bookingDetail > div{
+    display: flex;
+    gap: 3.5rem;
+}
+.saleDetail > div{
+    display: flex;
+    gap: 1.2rem;
+}
+.saleDetail{
+    width: 200px;
 }

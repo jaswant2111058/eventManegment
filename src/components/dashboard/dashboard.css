@@ -41,4 +41,6 @@ overflow: hidden;
 }
 .showbar{
     width: 70vw;
+    /* background-image: url("../../../public/images/bg3.jpg"); */
+    background-repeat: no-repeat;
 }

@@ -1,107 +1,196 @@
 import "./dashboardshow.css"
+import { TbDots } from "react-icons/tb";
 
 
-const DashboardShow =()=>{
-    return(    
-    <>
+const DashboardShow = () => {
+    return (
+        <>
             <div className="eventMain">
                 <div className="eventCardsWraper">
                     <div className="eventcards1">
-                            <div className="eventName">
-                                {"baskar Bassi"}
-                            </div>
-                            <div className="eventEarning">
-                                {"Rs 4500"}
-                            </div>
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                            <TbDots/>
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
                             <div className="eventCity">
                                 {"Pune"}
                             </div>
                             <div className="eventStatus">
                                 {"complete"}
                             </div>
+                        </div>
                     </div>
-                    
-                
+
+
                     <div className="eventcards1">
-                            <div className="eventName">
-                                {"baskar Bassi"}
-                            </div>
-                            <div className="eventEarning">
-                                {"Rs 4500"}
-                            </div>
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
                             <div className="eventCity">
                                 {"Pune"}
                             </div>
                             <div className="eventStatus">
                                 {"complete"}
                             </div>
+                        </div>
                     </div>
-                
+
                     <div className="eventcards1">
-                            <div className="eventName">
-                                {"baskar Bassi"}
-                            </div>
-                            <div className="eventEarning">
-                                {"Rs 4500"}
-                            </div>
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
                             <div className="eventCity">
                                 {"Pune"}
                             </div>
                             <div className="eventStatus">
                                 {"complete"}
                             </div>
+                        </div>
                     </div>
                     <div className="eventcards1">
-                            <div className="eventName">
-                                {"baskar Bassi"}
-                            </div>
-                            <div className="eventEarning">
-                                {"Rs 4500"}
-                            </div>
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
                             <div className="eventCity">
                                 {"Pune"}
                             </div>
                             <div className="eventStatus">
-                                {"Incomplete"}
+                                {"complete"}
                             </div>
+                        </div>
                     </div>
-                
+
                     <div className="eventcards1">
-                            <div className="eventName">
-                                {"baskar Bassi"}
-                            </div>
-                            <div className="eventEarning">
-                                {"Rs 4500"}
-                            </div>
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
                             <div className="eventCity">
                                 {"Pune"}
                             </div>
                             <div className="eventStatus">
-                                {"UpComing"}
+                                {"complete"}
                             </div>
+                        </div>
                     </div>
                 </div>
-                <hr/>
+                <hr />
                 <div className="eventDetails">
 
                     <div className="date&time">
-                        <h3>{"10 APR 2023"}</h3>
-                        <h4>{"10:00 AM"}</h4>
+                        <p>{"10 APR 2023"}</p>
+                        <p>{"9:00-10:00 AM 1 Hour" }</p>
                     </div>
                     <div className="venue">
-                        <h3>{"GHAZIABAD"}</h3>
-                        <h4>{"4th Floor City Plaza Crossing Republic"}</h4>
+                        <p>{"GHAZIABAD"}</p>
+                        <p>{"4th Floor City Plaza Crossing Republic"}</p>
                     </div>
                     <div className="bookingDetail">
-
-
+                        <div>
+                        <p>Type</p>
+                        <p>Total </p>
+                        <p>Booked </p>
+                        <p>Avilable </p>
+                        </div>
+                        <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div>
+                        <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div>
+                        <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div>
+                        <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div>
+                        <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div>
                     </div>
                     <div className="saleDetail">
+
+                    <div>
+                        <p> Type</p>
+                        <p> Sold  </p>
+                        <p> Rate </p>
+                        <p> Collection </p>
+                        </div>
+                        <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div> <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div> <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div> <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div> <div>
+                        <p>Front</p>
+                        <p>{"500"}</p>
+                        <p>{"250"}</p>
+                        <p>{"250"}</p>
+                        </div>  
 
                     </div>
                 </div>
             </div>
-    </>
+        </>
     )
 }
 export default DashboardShow
