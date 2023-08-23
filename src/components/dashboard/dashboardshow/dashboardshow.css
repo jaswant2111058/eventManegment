@@ -1,0 +1,22 @@
+.eventMain{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+}
+.eventCardsWraper{
+
+
+}
+.eventcards1{
+    width:  30vw;
+    background-color: burlywood;
+    border-radius: 10px;
+    padding:5px 10px;
+    margin: 20px;
+}
+.eventDetails{
+    
+    margin: 20px;
+
+}

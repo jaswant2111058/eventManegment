@@ -1,0 +1,135 @@
+.signupwrap
+{
+
+    padding: 20px;
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    transition: 1000ms;
+    translate: -500rem;
+    
+}
+.signup{
+    
+    border: solid black 3px;
+    width: 320px;
+    padding: 50px 0px 20px 0px;
+    height: 60vh;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 30px;
+ 
+}
+.signupbutton{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    width: 80px;
+    background-color: #003459;
+    color: aliceblue;
+    align-items: center;
+    border-radius: 10px;
+}
+.signup>input{
+   display: flex;
+      height: 45px;
+       margin-left: auto;
+       margin-right: auto;
+       border-radius: 20px;
+       font-size: 1.4rem;
+       margin-bottom: 20px;
+       text-align: center;
+       color:#003459;
+       background-color:transparent ;
+}
+.gotologin{
+    font-size: large;
+    display: flex;
+    justify-content: center;
+}
+.gotologin>a{
+    color: blue;
+    margin-left: 5px;
+    cursor: pointer;
+}
+.headers{
+    width: 100%;
+    text-align: center;
+    background-color: black;
+    color: yellowgreen;
+}
+.headers>img{
+   mix-blend-mode: hard-light;
+}
+.login{
+    display: flex;
+    overflow-x:hidden ;
+    background-image:url('../../../public/images/background.jpg')  ;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+}
+.loginmain{
+    border: solid black 3px;
+    width: 310px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 90px 0px 20px 0px;
+    height: 60vh;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.loginwrap{
+   
+    padding: 20px;
+    height: 100vh;
+    margin-right: auto;
+    transition: 1000ms;
+  
+}
+.loginmain >button{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    width: 65px;
+    background-color: #003459;
+    color: aliceblue;
+    text-align: center;
+    border-radius: 10px;
+   }
+   .loginmain>input{
+      display: flex;
+      height: 45px;
+       margin-left: auto;
+       margin-right: auto;
+       border-radius: 20px;
+       font-size: 1.4rem;
+       margin-bottom: 20px;
+       text-align: center;
+       color:#003459;
+       background-color:transparent ;
+   }
+   ::placeholder {
+    color:#003459;
+    opacity: 0.8; /* Firefox */
+  }
+   .gotosignup{
+       font-size: large;
+       display: flex;
+       justify-content: center;
+   }
+   .gotosignup>a{
+       color: blue;
+       margin-left: 5px;
+       cursor: pointer;
+   }
+   .mainwrap>img{
+    height:100px;
+    position: fixed;
+    margin-left: 50vw;
+    margin-top: 50vh;
+    opacity:1.5;
+   }

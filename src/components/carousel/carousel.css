@@ -1,0 +1,59 @@
+
+.carousel{
+  margin-top: 30px;
+}
+.images{ 
+  display: flex;
+  gap:0.6rem;
+  overflow-x: scroll;
+  width: 78vw;
+  padding-bottom: 20px;
+  scroll-margin-left:50px;
+  transition: 500ms;
+  margin-left: auto;
+  margin-right: auto;
+  scroll-behavior: smooth;
+}
+.radiobtn{
+  display: flex;
+  transition: 500ms;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.images::-webkit-scrollbar {
+  display: none;
+}
+/* .images::-webkit-scrollbar-thumb {
+  background:black;
+  border-radius: 10px;
+}
+.images::-webkit-scrollbar-track {
+  background: transparent;
+} */
+
+.first{
+  /* height: 250px;
+  width: 800px;
+  margin-top: auto;
+  margin-bottom: auto;
+  transform: skewY(5deg);
+  box-shadow: -10px 10px 20px 0px black;
+  transition: 1000ms; */
+  height: 27vw;
+  
+}
+.sec{
+ 
+  height: 27vw;
+}
+.forth{
+  height: 27vw;
+}
+.fifth{
+  height: 27vw;
+}
+.third{
+  height: 27vw;
+}

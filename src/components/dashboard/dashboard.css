@@ -1,0 +1,44 @@
+.wraper{
+    
+display: flex;
+overflow: hidden;
+
+}
+.menubar{
+    min-width: 300px;
+    max-width: 30vw;
+    background-color: blueviolet;
+    height: 100vh;
+}
+.header{
+   text-align: center;
+   margin-bottom: 20px;
+   
+}
+.logo{
+    height: 60px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    mix-blend-mode: lighten;
+    filter: contrast(1.2);
+}
+.account,.dashboard,.newevent,.clashes,.statics,.Contactus,.logout{
+    display: block;
+    background-color: transparent;
+    margin-left: 20%;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    width: 90%;
+    height: 50px;
+   border: none;
+   border-radius: 20px;
+   cursor: pointer;
+   text-align: left;
+   padding-left: 53px;
+}
+.dashboard{
+    background-color: white;
+}
+.showbar{
+    width: 70vw;
+}
