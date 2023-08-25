@@ -2,13 +2,12 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     padding: 30px;
     display: flex;
-    justify-content: center;
-    
-    
+    justify-content: space-between;
+  
 }
 
 .eventcards1{
-    width:  30vw;
+    width:  35vw;
     background-color: rgba(66, 159, 231, 0.231);
     border-radius: 5px;
     padding:15px 10px 10px 15px;
@@ -17,9 +16,15 @@
 }
 .eventDetails{
     
-    margin: 20px;
-
+    margin: 20px 0px 0px 10px;
 }
+.eventCardsWraper{
+    height: 90vh;
+    overflow-x: auto;
+}
+.eventCardsWraper::-webkit-scrollbar {
+    display: none;
+  }
 .eventName{
     display: flex;
     justify-content: space-between;
@@ -35,14 +40,41 @@
     display: flex;
     justify-content: space-between;
 }
-.bookingDetail > div{
-    display: flex;
-    gap: 3.5rem;
+
+.bookingDetail{
+   font-size: 0.85rem;
 }
-.saleDetail > div{
-    display: flex;
-    gap: 1.2rem;
-}
+
 .saleDetail{
-    width: 200px;
+   
+    font-size: 0.85rem;
+}
+.dateTime{
+    font-size: larger;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+.dateTime>p{
+    font-size: small;
+    margin-top: 5px;
+    color: gray;
+}
+
+.venue{
+    font-size: larger;
+    margin-bottom: 15px;
+}
+.venue >p{
+    font-size: small;
+    margin-top: 5px;
+    color: gray;
+}
+td {
+       padding: 5px;
+       border: solid black 1px;
+}
+table{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 280px;
 }

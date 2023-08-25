@@ -46,6 +46,123 @@ const DashboardShow = () => {
                             </div>
                         </div>
                     </div>
+                    <div className="eventcards1">
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                            <TbDots/>
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
+                            <div className="eventCity">
+                                {"Pune"}
+                            </div>
+                            <div className="eventStatus">
+                                {"complete"}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="eventcards1">
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
+                            <div className="eventCity">
+                                {"Pune"}
+                            </div>
+                            <div className="eventStatus">
+                                {"complete"}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="eventcards1">
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                            <TbDots/>
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
+                            <div className="eventCity">
+                                {"Pune"}
+                            </div>
+                            <div className="eventStatus">
+                                {"complete"}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="eventcards1">
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
+                            <div className="eventCity">
+                                {"Pune"}
+                            </div>
+                            <div className="eventStatus">
+                                {"complete"}
+                            </div>
+                        </div>
+                    </div>
+                    <div className="eventcards1">
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                            <TbDots/>
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
+                            <div className="eventCity">
+                                {"Pune"}
+                            </div>
+                            <div className="eventStatus">
+                                {"complete"}
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="eventcards1">
+                        <div className="eventName">
+                            {"Baskar Bassi"}
+                        </div>
+                        <div className="timeday">
+                            {"9:00 AM - 10:00 AM "}
+                            {"Tue"}
+                        </div>
+                        <div className="venue_Status" >
+
+                            <div className="eventCity">
+                                {"Pune"}
+                            </div>
+                            <div className="eventStatus">
+                                {"complete"}
+                            </div>
+                        </div>
+                    </div>
 
                     <div className="eventcards1">
                         <div className="eventName">
@@ -105,87 +222,100 @@ const DashboardShow = () => {
                 </div>
                 <hr />
                 <div className="eventDetails">
-
-                    <div className="date&time">
-                        <p>{"10 APR 2023"}</p>
+                    <h4>Event Detail</h4>
+                    <div className="dateTime">
+                            {"10 NOV 2023"}
                         <p>{"9:00-10:00 AM 1 Hour" }</p>
                     </div>
                     <div className="venue">
-                        <p>{"GHAZIABAD"}</p>
-                        <p>{"4th Floor City Plaza Crossing Republic"}</p>
+                            {"GHAZIABAD"}
+                        <p>{"4td Floor City Plaza Crossing Republic"}</p>
                     </div>
                     <div className="bookingDetail">
-                        <div>
-                        <p>Type</p>
-                        <p>Total </p>
-                        <p>Booked </p>
-                        <p>Avilable </p>
-                        </div>
-                        <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div>
-                        <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div>
-                        <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div>
-                        <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div>
-                        <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div>
+                        <p>Booked Seat Deatail</p>
+                        <table>
+                            <tr>
+                                <td> Type </td>
+                                <td> Total </td>
+                                <td> Booked </td>
+                                <td> Avilable </td>
+                            </tr>
+                            <tr>
+                                <td> Front </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Middle </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Back </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Primium </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Normal </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"250"} </td>
+                            </tr>
+
+                        </table>
+                        
                     </div>
                     <div className="saleDetail">
+                        <p>Sell Detail</p>
 
-                    <div>
-                        <p> Type</p>
-                        <p> Sold  </p>
-                        <p> Rate </p>
-                        <p> Collection </p>
-                        </div>
-                        <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div> <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div> <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div> <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div> <div>
-                        <p>Front</p>
-                        <p>{"500"}</p>
-                        <p>{"250"}</p>
-                        <p>{"250"}</p>
-                        </div>  
+                    <table>
+                            <tr>
+                                <td> Type </td>
+                                <td> Total </td>
+                                <td> Sold </td>
+                                <td> Collection </td>
+                            </tr>
+                            <tr>
+                                <td> Front </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"$ 250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Middle </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"$ 250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Back </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"$ 250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Primium </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {"$ 250"} </td>
+                            </tr>
+                            <tr>
+                                <td> Normal </td>
+                                <td> {"500"} </td>
+                                <td> {"250"} </td>
+                                <td> {" $ 250"} </td>
+                            </tr>
+                        </table>
+                       
 
                     </div>
                 </div>
