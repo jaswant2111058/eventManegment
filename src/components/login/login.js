@@ -21,6 +21,7 @@ const Login = () => {
             window.alert("enter password and Repassword is not matching")
         }
         else {
+        try{
             setIsLoading(true)
             const user = { username, email, password }
             await axios.post(`${baseURL}/signup`, user).then((res, err) => {
@@ -35,12 +36,25 @@ const Login = () => {
                     document.getElementById("login").style.opacity = "1"
                 }
             })
+            }
+            catch(err){
+
+                window.alert(err)
+                setIsLoading(false)
+                document.getElementById("login").style.opacity = "1"
+            }
+            finally{
+                setIsLoading(false)
+                document.getElementById("login").style.opacity = "1"
+            }
         }
     }
 
     const login = async () => {
         setIsLoading(true)
         const user = { email, password }
+
+        try{
 
         await axios.post(`${baseURL}/login`, user).then((res, err) =>  {
             if (err) {
@@ -53,10 +67,20 @@ const Login = () => {
                 localStorage.setItem("user",JSON.stringify(res.data.user))
                 window.alert(res.data.msg)
                 document.getElementById("login").style.opacity = "1"
-                navigate("/lsenets")
+                navigate("/lsevnets")
             }
         })
+    }
+    catch(err){
 
+        window.alert(err)
+        setIsLoading(false)
+        document.getElementById("login").style.opacity = "1"
+    }
+    finally{
+        setIsLoading(false)
+        document.getElementById("login").style.opacity = "1"
+    }
 
     }
 

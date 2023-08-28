@@ -232,87 +232,87 @@ const DashboardShow = () => {
                         <p>{"4td Floor City Plaza Crossing Republic"}</p>
                     </div>
                     <div className="bookingDetail">
-                        <p>Booked Seat Deatail</p>
-                        <table>
+                        <h4>Booked Seat Deatail</h4>
+                        <table className="tableDashboard">
                             <tr>
-                                <td> Type </td>
-                                <td> Total </td>
-                                <td> Booked </td>
-                                <td> Avilable </td>
+                                <td className="tableData"> Type </td>
+                                <td className="tableData"> Total </td>
+                                <td className="tableData"> Booked </td>
+                                <td className="tableData"> Avilable </td>
                             </tr>
                             <tr>
-                                <td> Front </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"250"} </td>
+                                <td className="tableData"> Front </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"250"} </td>
                             </tr>
                             <tr>
-                                <td> Middle </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"250"} </td>
+                                <td className="tableData"> Middle </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"250"} </td>
                             </tr>
                             <tr>
-                                <td> Back </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"250"} </td>
+                                <td className="tableData"> Back </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"250"} </td>
                             </tr>
                             <tr>
-                                <td> Primium </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"250"} </td>
+                                <td className="tableData"> Primium </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"250"} </td>
                             </tr>
                             <tr>
-                                <td> Normal </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"250"} </td>
+                                <td className="tableData"> Normal </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"250"} </td>
                             </tr>
 
                         </table>
                         
                     </div>
                     <div className="saleDetail">
-                        <p>Sell Detail</p>
+                        <h4>Sell Detail</h4>
 
                     <table>
                             <tr>
-                                <td> Type </td>
-                                <td> Total </td>
-                                <td> Sold </td>
-                                <td> Collection </td>
+                                <td className="tableData"> Type </td>
+                                <td className="tableData"> Total </td>
+                                <td className="tableData"> Sold </td>
+                                <td className="tableData"> Collection </td>
                             </tr>
                             <tr>
-                                <td> Front </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"$ 250"} </td>
+                                <td className="tableData"> Front </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"$ 250"} </td>
                             </tr>
                             <tr>
-                                <td> Middle </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"$ 250"} </td>
+                                <td className="tableData"> Middle </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"$ 250"} </td>
                             </tr>
                             <tr>
-                                <td> Back </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"$ 250"} </td>
+                                <td className="tableData"> Back </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"$ 250"} </td>
                             </tr>
                             <tr>
-                                <td> Primium </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {"$ 250"} </td>
+                                <td className="tableData"> Primium </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {"$ 250"} </td>
                             </tr>
                             <tr>
-                                <td> Normal </td>
-                                <td> {"500"} </td>
-                                <td> {"250"} </td>
-                                <td> {" $ 250"} </td>
+                                <td className="tableData"> Normal </td>
+                                <td className="tableData"> {"500"} </td>
+                                <td className="tableData"> {"250"} </td>
+                                <td className="tableData"> {" $ 250"} </td>
                             </tr>
                         </table>
                        

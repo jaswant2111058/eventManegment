@@ -55,7 +55,6 @@ const Account =()=>{
                     <button className="Btn4" onClick={()=>setaccBoard(4)}>
                         Bank Account
                     </button>
-
                 </div>
                 <hr/>
 

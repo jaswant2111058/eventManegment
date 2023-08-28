@@ -2,12 +2,13 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     padding: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 2rem;
   
 }
 
 .eventcards1{
-    width:  35vw;
+    width:  32vw;
     background-color: rgba(66, 159, 231, 0.231);
     border-radius: 5px;
     padding:15px 10px 10px 15px;
@@ -49,6 +50,7 @@
    
     font-size: 0.85rem;
 }
+
 .dateTime{
     font-size: larger;
     margin-bottom: 15px;
@@ -69,11 +71,11 @@
     margin-top: 5px;
     color: gray;
 }
-td {
+.tableData {
        padding: 5px;
        border: solid black 1px;
 }
-table{
+.tableDashboard{
     margin-top: 15px;
     margin-bottom: 15px;
     width: 280px;

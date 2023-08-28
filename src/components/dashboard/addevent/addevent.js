@@ -20,7 +20,7 @@ const AddEvent = () => {
         await axios.post(`${baseURL}/upload`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
-                'Authorization': `${user.token}` 
+                'Authorization': `${user.token}`
             }
         }).then((res, err) => {
             if (err) {
@@ -59,71 +59,72 @@ const AddEvent = () => {
     })
 
 
-   async function finalSubmit(){
+    async function finalSubmit() {
 
-    let data = {
-        name:formData.name,
-        venue:formData.venue,
-        seats:{
-            front:formData.front,
-            middel:formData.middel,
-            back:formData.back,
-            normal:formData.normal,
-            primium:formData.primium,
-        },
-        price:{
-            front:formData.pricefront,
-            middel:formData.pricemiddel,
-            back:formData.priceback,
-            normal:formData.pricenormal,
-            primium:formData.priceprimium,
-        },
-        user_id:user.userid,
-        title:formData.title,
-        content:formData.content
-    }
-    await axios.post(`${baseURL}/addevent`,data, {
-        headers: {
-            'Content-Type': '"application/json',
-            'Authorization': `${user.token}` 
+        let data = {
+            name: formData.name,
+            venue: formData.venue,
+            seats: {
+                front: formData.front,
+                middel: formData.middel,
+                back: formData.back,
+                normal: formData.normal,
+                primium: formData.primium,
+            },
+            price: {
+                front: formData.pricefront,
+                middel: formData.pricemiddel,
+                back: formData.priceback,
+                normal: formData.pricenormal,
+                primium: formData.priceprimium,
+            },
+            user_id: user.userid,
+            title: formData.title,
+            content: formData.content
         }
-    }).then((res, err) => {
-        if (err) {
-            window.alert(err)
-            setIsLoading(false)
-        }
-        else {
-           window.alert(res.data.msg)
-           localStorage.removeItem("incomplete")
-        }
-    })
+        await axios.post(`${baseURL}/addevent`, data, {
+            headers: {
+                'Content-Type': '"application/json',
+                'Authorization': `${user.token}`
+            }
+        }).then((res, err) => {
+            if (err) {
+                window.alert(err)
+                setIsLoading(false)
+            }
+            else {
+                window.alert(res.data.msg)
+                localStorage.removeItem("incomplete")
+            }
+        })
 
     }
 
     return (
         <>
-            <div className="mainadd">
-                <div className="lefthalf">
+        <div className="mainwraper">
+            <h2>EVENT DETAIL</h2>
+            <div className="mainadd"> 
+                <div className="upperhalf">
                     <div className="detail">
-                        <h3>Name Of Event</h3>
+                        <p>Name Of Event</p>
                         <input className="name"
                             name="name"
                             type="text"
-                            placeholder="Name"
+                            placeholder="Enter Name"
                             onChange={handleChange}
                             required
                         />
 
-                        <h3>Date</h3>
+                        <p>Date</p>
                         <input className="date"
                             name="date"
                             type="date"
-                            placeholder="Enter Email"
                             onChange={handleChange}
                             required
                         />
 
-                        <h3>Time</h3>
+                        <p>Time</p>
                         <input className="time"
                             name="time"
                             type="time"
@@ -132,131 +133,148 @@ const AddEvent = () => {
                             required
                         />
                     </div>
-                    <h3>Enter Seat Details</h3>
-
-                    <div className="definetag">
-                        <h3>Seat Type</h3>
-                        <h3>Price</h3>
+                    <div className="upperhalf2">
+                        <p>Title</p>
+                        <input className="title"
+                            name="title"
+                            type="string"
+                            placeholder="Enter the Title"
+                            onChange={handleChange}
+                            required
+                        />
+                        <p>Content</p>
+                        <textarea className="content"
+                            name="content"
+                            type="string"
+                            placeholder="Enter the content"
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
-                    <div className="seat">
-                        <div className="seattype">
-                            <h3>Front</h3>
-                            <h3>middel</h3>
-                            <h3>Back</h3>
-                            <h3>Normal</h3>
-                            <h3>primium</h3>
+                    <div className="lowerhalf">
+                        <p>Enter Seat Details</p>
+
+                        <div className="definetag">
+
+                            <table>
+                                <tr>
+                                    <td className="td">Seat Type</td>
+                                    <td className="td">Total Avilable</td>
+                                    <td className="td">price</td>
+                                </tr>
+                                <tr>
+                                    <td className="td">Front</td>
+                                    <td className="td">
+                                        <input className="fronts"
+                                        name="fronts"
+                                        type="text"
+                                        placeholder="Available fronts seats"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                    <td className="td">
+                                        <input className="pricefronts"
+                                        name="pricefronts"
+                                        type="string"
+                                        placeholder="Enter the back"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>    
+                                </tr>
+                                <tr>
+                                    <td className="td">middel</td>
+                                    <td className="td">
+                                        <input className="middel"
+                                        name="middel"
+                                        type="string"
+                                        placeholder="Enter the middel"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                    <td className="td">
+                                        <input className="pricemiddel"
+                                        name="pricemiddel"
+                                        type="string"
+                                        placeholder="Enter the back"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="td">Back</td>
+                                    <td className="td">
+                                        <input className="back"
+                                        name="back"
+                                        type="string"
+                                        placeholder="Enter the back"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                    <td className="td">
+                                        <input className="priceback"
+                                        name="priceback"
+                                        type="string"
+                                        placeholder="Enter the back"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="td">Normal</td>
+                                    <td className="td">
+                                        <input className="normal"
+                                        name="normal"
+                                        type="string"
+                                        placeholder="Enter the normal"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                    <td className="td">
+                                        <input className="pricenormal"
+                                        name="pricenormal"
+                                        type="string"
+                                        placeholder="Enter the back"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td className="td">primium</td>
+                                    <td className="td">
+                                        <input className="primium"
+                                        name="primium"
+                                        type="string"
+                                        placeholder="Enter the primium"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                    <td className="td">
+                                        <input className="priceprimium"
+                                        name="priceprimium"
+                                        type="string"
+                                        placeholder="Enter the back"
+                                        onChange={handleChange}
+                                        required
+                                        />
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                        <div className="seatinput">
-                            <input className="fronts"
-                                name="fronts"
-                                type="string"
-                                placeholder="Enter the fronts"
-                                onChange={handleChange}
-                                required
-                            />
-
-                            <input className="middel"
-                                name="middel"
-                                type="string"
-                                placeholder="Enter the middel"
-                                onChange={handleChange}
-                                required
-
-                            />
-
-                            <input className="back"
-                                name="back"
-                                type="string"
-                                placeholder="Enter the back"
-                                onChange={handleChange}
-                                required
-
-                            />
-
-                            <input className="normal"
-                                name="normal"
-                                type="string"
-                                placeholder="Enter the normal"
-                                onChange={handleChange}
-                                required
-
-                            />
-
-                            <input className="primium"
-                                name="primium"
-                                type="string"
-                                placeholder="Enter the primium"
-                                onChange={handleChange}
-                                required
-
-                            />
-                        </div>
-                        <div className="price">
-
-                            <input className="pricefronts"
-                                name="pricefronts"
-                                type="string"
-                                placeholder="Enter the back"
-                                onChange={handleChange}
-                                required
-
-                            />
-                            <input className="pricemiddel"
-                                name="pricemiddel"
-                                type="string"
-                                placeholder="Enter the back"
-                                onChange={handleChange}
-                                required
-
-                            />
-                            <input className="priceback"
-                                name="priceback"
-                                type="string"
-                                placeholder="Enter the back"
-                                onChange={handleChange}
-                                required
-
-                            />
-                            <input className="pricenormal"
-                                name="pricenormal"
-                                type="string"
-                                placeholder="Enter the back"
-                                onChange={handleChange}
-                                required
-
-                            />
-                            <input className="priceprimium"
-                                name="priceprimium"
-                                type="string"
-                                placeholder="Enter the back"
-                                onChange={handleChange}
-                                required
-
-                            />
-
-                        </div>
-
                     </div>
+
+
                 </div>
-
-                <div className="rigthhalf">
-                    <h3>Title</h3>
-                    <input className="title"
-                        name="title"
-                        type="string"
-                        placeholder="Enter the Title"
-                        onChange={handleChange}
-                        required
-                    />
-                    <h3>Content</h3>
-                    <textarea className="content"
-                        name="content"
-                        type="string"
-                        placeholder="Enter the content"
-                        onChange={handleChange}
-                        required
-                    />
-                    <h3>Upload Images</h3>
+                <div className="upperhalf3">
+                    <p>Upload Images </p>
                     <input className="file"
                         id="file"
                         name="image"
@@ -265,13 +283,19 @@ const AddEvent = () => {
                         placeholder="Enter the content"
                         required
                     />
-                    <input type="submit" onClick={upload} />
+                    <button className="imgUploadBtn" onClick={upload}>Upload </button>
+                    
+                    <p>Image Preview</p>
                     <div className="imgpreview">
+
                         {imgpreview}
                     </div>
                 </div>
-               </div>
-               <input type="submit" onClick={finalSubmit} />
+               
+            </div>
+            <button className="submitBtn" onClick={finalSubmit}>Submit</button>
+            
+        </div>
         </>
     )
 

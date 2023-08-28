@@ -13,7 +13,7 @@ import { HiViewGridAdd,HiOutlineLogout } from "react-icons/hi";
 
 const Dashboard = () => {
 
-    const [ board ,setBoard] =useState(1)
+    const [ board ,setBoard] =useState(3)
 
     function select(arg){
         setBoard(arg)

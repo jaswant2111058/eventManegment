@@ -1,0 +1,6 @@
+.mainWraper{
+    display: flex;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
