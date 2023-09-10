@@ -24,7 +24,6 @@ router.post('/addevent',
     body('date').exists().withMessage('data of the events is required'),
     body('time').exists().withMessage('time of the events is required'),
     body('user_id').exists().withMessage('name and Id of event is required'),
-   
     ],
     eventController.addEvent
 );
