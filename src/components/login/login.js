@@ -1,86 +1,87 @@
 import "./login.css"
 import { useState, useEffect } from 'react';
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import axios from "axios";
+import { useData } from "../context/DataContext";
 
 
 
 const Login = () => {
 
+    const { isLoading, startLoading, stopLoading,setUser } = useData();
     const navigate = useNavigate()
-
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
-    const [isLoading, setIsLoading] = useState(false)
     const baseURL = "http://localhost:5000"
 
     const signup = async () => {
-        if (password !== repass&&username&&email) {
+        if (password !== repass && username && email) {
             window.alert("enter password and Repassword is not matching")
         }
         else {
-        try{
-            setIsLoading(true)
-            const user = { username, email, password }
-            await axios.post(`${baseURL}/signup`, user).then((res, err) => {
-                if (err) {
-                    window.alert(err)
-                    setIsLoading(false)
-                    document.getElementById("login").style.opacity = "1"
-                }
-                else {
-                    window.alert(res.data.message)
-                    setIsLoading(false)
-                    document.getElementById("login").style.opacity = "1"
-                }
-            })
+            try {
+                startLoading();
+                const user = { username, email, password }
+                await axios.post(`${baseURL}/signup`, user).then((res, err) => {
+                    if (err) {
+                        window.alert(err)
+                        stopLoading();
+                        document.getElementById("login").style.opacity = "1"
+                    }
+                    else {
+                        window.alert(res.data.message)
+                        stopLoading();
+                        document.getElementById("login").style.opacity = "1"
+                    }
+                })
             }
-            catch(err){
+            catch (err) {
 
                 window.alert(err)
-                setIsLoading(false)
+                stopLoading();
                 document.getElementById("login").style.opacity = "1"
             }
-            finally{
-                setIsLoading(false)
+            finally {
+                stopLoading();
                 document.getElementById("login").style.opacity = "1"
             }
         }
     }
 
     const login = async () => {
-        setIsLoading(true)
+        startLoading();
         const user = { email, password }
 
-        try{
+        try {
 
-        await axios.post(`${baseURL}/login`, user).then((res, err) =>  {
-            if (err) {
-                window.alert(err)
-                setIsLoading(false)
-                document.getElementById("login").style.opacity = "1"
-            }
-            else {
-                setIsLoading(false)
-                localStorage.setItem("user",JSON.stringify(res.data.user))
-                window.alert(res.data.msg)
-                document.getElementById("login").style.opacity = "1"
-                navigate("/lsevnets")
-            }
-        })
-    }
-    catch(err){
+            await axios.post(`${baseURL}/login`, user).then((res, err) => {
+                if (err) {
+                    window.alert(err)
+                    stopLoading();
+                    document.getElementById("login").style.opacity = "1"
+                }
+                else {
+                    stopLoading();
+                    setUser(res.data.user)
+                    localStorage.setItem("user", JSON.stringify(res.data.user))
+                    window.alert(res.data.msg)
+                    document.getElementById("login").style.opacity = "1"
+                    navigate("/lsevents")
+                }
+            })
+        }
+        catch (err) {
 
-        window.alert(err)
-        setIsLoading(false)
-        document.getElementById("login").style.opacity = "1"
-    }
-    finally{
-        setIsLoading(false)
-        document.getElementById("login").style.opacity = "1"
-    }
+            window.alert(err)
+            stopLoading();
+            document.getElementById("login").style.opacity = "1"
+        }
+        finally {
+            stopLoading();
+            document.getElementById("login").style.opacity = "1"
+        }
 
     }
 
@@ -96,13 +97,11 @@ const Login = () => {
     const handleChangerepass = (e) => {
         setRepass(e.target.value)
     }
-    let loader =""
-    if(isLoading){
-        loader = <img src="./images/loading.png!sw800" />
+    let loader = ""
+    if (isLoading) {
+        loader = <img className="loader" src="./images/loading.png!sw800" />
         document.getElementById("login").style.opacity = "0.5"
     }
-    
-
 
     return (
         <>

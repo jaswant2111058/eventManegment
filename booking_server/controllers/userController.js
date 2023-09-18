@@ -162,7 +162,7 @@ exports.login = async (req, res) => {
 
         res.status(200).send({
             msg: `user logged in`, user: {
-            userid:user._id,
+            user_id:user._id,
             email: email,
             username: user.username,
             token: token,

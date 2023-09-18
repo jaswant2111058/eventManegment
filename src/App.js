@@ -14,7 +14,7 @@ function App()
               <Route exact path ='/lsevents' element={<Dashboard/>}/>
               <Route exact path ='/login' element={<Login/>}/>
               </Routes>
-              </HashRouter>
+              </HashRouter> 
 
   );
 }

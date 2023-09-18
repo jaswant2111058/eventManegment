@@ -3,11 +3,12 @@
 display: flex;
 overflow: hidden;
 
+
 }
 .menubar{
     min-width: 300px;
     max-width: 30vw;
-    background-color: blueviolet;
+    background-color: rgba(34, 54, 233, 0.495);
     height: 100vh;
 }
 .header{

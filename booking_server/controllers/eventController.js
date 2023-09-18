@@ -1,11 +1,12 @@
 const event = require("../models/events");
 const users = require("../models/users");
+const search = require("../models/search");
 
 
 exports.showEvent = async (req, res, next) => {
     try {
         const { user_id } = req.body;
-        let events_id = await users.findOne({ _id: user_id })
+        let events_id = await users.find({ _id: user_id })
         const data = events_id.events
         res.status(200).send(data);
     } catch (error) {
@@ -16,6 +17,52 @@ exports.showEvent = async (req, res, next) => {
 }
 
 exports.addEvent = async (req, res) => {
+    try {
+        const { title:title,
+            name,
+            date,
+            time,
+            price,
+            available_seat,
+            seats,
+            user_id,
+            img,
+            content,
+            venue
+        } = req.body
+        // const data = await place.findOne({name:city})
+        const obj = {
+            title,
+            name,
+            date,
+            time,
+            price,
+            available_seat,
+            seats,
+            user_id,
+            img,
+            content,
+            venue
+        }
+        const new_event = new event(obj);
+        const saved = await new_event.save();  
+        // const new_search = new event({name,venue,eventId:new_event._id});
+        //               await new_search.save();
+        // users.findByIdAndUpdate(user_id,{
+        //     $push:{events:new_event._id}
+        // })
+        // let events_id = await users.findOne({ _id: user_id })
+        // events_id = events_id.events
+        // events_id.push(new_event._id)
+        // await users.updateOne({ _id: user_id }, { events: events_id })
+        res.status(200).send({ msg: "saved", event: saved });
+    }   catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+}
+exports.updateEvent = async (req, res) => {
     try {
         const { title,
             name,
@@ -44,13 +91,18 @@ exports.addEvent = async (req, res) => {
             venue
         }
         const new_event = new event(obj);
-        const saved = await new_event.save();
-        let events_id = await users.findOne({ _id: users_id })
-        events_id = events_id.events
-        events_id.push(new_event._id)
-        await users.updateOne({ _id: user_id }, { events: events_id })
+        const saved = await new_event.save();  
+        // const new_search = new event({name,venue,eventId:new_event._id});
+        //               await new_search.save();
+        // users.findByIdAndUpdate(user_id,{
+        //     $push:{events:new_event._id}
+        // })
+        // let events_id = await users.findOne({ _id: user_id })
+        // events_id = events_id.events
+        // events_id.push(new_event._id)
+        // await users.updateOne({ _id: user_id }, { events: events_id })
         res.status(200).send({ msg: "saved", event: saved });
-    } catch (error) {
+    }   catch (error) {
         res.status(500).json({
             message: error.message
         })

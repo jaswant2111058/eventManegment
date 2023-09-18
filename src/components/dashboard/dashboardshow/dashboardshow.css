@@ -3,25 +3,32 @@
     padding: 30px;
     display: flex;
     justify-content: center;
-    gap: 2rem;
-  
+    flex-wrap: wrap;
+    gap: 1rem;
 }
-
 .eventcards1{
-    width:  32vw;
-    background-color: rgba(66, 159, 231, 0.231);
+    width:  25rem;
+    background-color: rgba(215, 230, 250);
     border-radius: 5px;
     padding:15px 10px 10px 15px;
-    margin: 20px;
     cursor: pointer;
+    margin: 20px 0px;
 }
 .eventDetails{
-    
-    margin: 20px 0px 0px 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(44, 145, 218, 0.114);
+    padding: 15px;
+    margin: 0px 20px 0px 10px;
 }
 .eventCardsWraper{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 15px;
     height: 90vh;
     overflow-x: auto;
+    background-color: rgba(44, 145, 218, 0.114);
+   
 }
 .eventCardsWraper::-webkit-scrollbar {
     display: none;
@@ -72,11 +79,36 @@
     color: gray;
 }
 .tableData {
-       padding: 5px;
-       border: solid black 1px;
+       padding: 6px 6px;
+       width: 63px;
+       
 }
 .tableDashboard{
-    margin-top: 15px;
+    margin-top: 6px;
     margin-bottom: 15px;
     width: 280px;
+}
+
+
+.tableRow1{
+
+    background-color: rgb(215, 230, 250);
+
+}
+.tableRow2{
+
+    background-color: rgba(215, 230, 250, 0.783);
+
+}
+.tableRow3{
+
+    background-color: rgba(215, 230, 250, 0.54);
+
+}
+.dashImage{
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px 10px;
+  background-color: rgba(44, 145, 218, 0.114);
+  width: 310px;
 }

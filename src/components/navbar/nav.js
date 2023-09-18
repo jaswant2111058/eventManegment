@@ -1,11 +1,19 @@
 import "./nav.css"
 import { useNavigate } from "react-router-dom";
-import  {FaBars,FaTimes, FaSearch, FaMobileAlt} from "react-icons/fa";
+import { useState, useEffect } from 'react';
+import { useData } from "../context/DataContext";
+import  {FaBars,FaTimes, FaSearch} from "react-icons/fa";
+
 
 
 const Navbar=()=>{
 
+    const { isLoading, startLoading, stopLoading,setQuery } = useData();
+
     const navigate = useNavigate();
+    const handleChangen=(e)=>{
+        setQuery(e.target.value)
+    }
 
 return(
     <>
@@ -20,10 +28,7 @@ return(
     </div>
         
     <div className="navbar">
-
-       
         <div className="leftside">
-
             <div className="btn1">
             <FaBars onClick={()=>{
                 document.getElementById("navOption").style.width="300px"
@@ -37,12 +42,13 @@ return(
             <img src="./images/BOlogo.jpg"/>
         </div>
         <div className="search_bar">
-        <input className="search_place"/>
+        <input className="search_place"
+        onChange={handleChangen}
+        />
         <FaSearch/>
         </div>
     </div>
     <div className="nav2">
-
         <div className="left">
             <p>Movies</p>
             <p>Streams</p>

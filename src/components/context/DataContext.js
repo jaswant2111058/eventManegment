@@ -1,47 +1,76 @@
-import { createContext, useState, useEffect } from "react";
-import useWindowSize from "../hooks/useWindowSize";
-import useAxiosFetch from "../hooks/useAxiosFetch";
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import axios from 'axios';
+const DateContext = createContext();
 
-const DataContext = createContext({});
+export const useData = () => {
+  return useContext(DateContext);
+};
 
 export const DataProvider = ({ children }) => {
-  const [search, setSearch] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [posts, setPosts] = useState([]);
-  const { width } = useWindowSize();
-  const { data, fetchError, isLoading } = useAxiosFetch(
-    "http://localhost:5000/posts"
-  );
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+  const [isLoading, setLoading] = useState(false);
+  const [user,setUser]=useState({})
+  const baseURL = "http://localhost:5000"
 
-  useEffect(() => {
-    setPosts(data);
-  }, [data]);
-  useEffect(() => {
-    const filteredResults = posts.filter(
-      (post) =>
-        post.body.toLowerCase().includes(search.toLowerCase()) ||
-        post.title.toLowerCase().includes(search.toLowerCase())
-    );
 
-    setSearchResults(filteredResults.reverse());
-  }, [posts, search]);
+  const startLoading = () => {
+    setLoading(true);
+  };
+
+  const stopLoading = () => {
+    document.getElementById("wraper").style.opacity = "1"
+    setLoading(false);
+  };
+
+  useEffect(()=>{
+      const isUser = localStorage.getItem("user")
+      setUser(isUser?JSON.parse(isUser):"")
+  },[])
+  useEffect(() => {
+    const performSearch = async () => {
+    
+      try {
+        const response = await axios.get(`${baseURL}/search?q=${query}`); 
+            if(!response){
+              setResults(response.data);
+            }
+      } catch (error) {
+        console.error('Error searching:',error);
+      } 
+    };
+
+    if (query) {
+      performSearch();
+    } else {
+      // Clear the results when the query is empty
+      setResults([]);
+    }
+  }, [query]);
 
   return (
-    <DataContext.Provider
-      value={{
-        width,
-        search,
-        setSearch,
-        posts,
-        fetchError,
-        isLoading,
-        setPosts,
-        searchResults,
-      }}
-    >
+    <DateContext.Provider value={{
+       query, 
+       setQuery, 
+       results,
+       isLoading, 
+       startLoading, 
+       stopLoading,
+       user,
+       setUser
+       }}>
       {children}
-    </DataContext.Provider>
+    </DateContext.Provider>
   );
 };
 
-export default DataContext;
+
+
+
+
+
+
+
+
+
+

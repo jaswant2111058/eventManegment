@@ -4,3 +4,11 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
+.eventCardsWraper2{
+    margin-top: 10px;
+    max-height: 55vh;
+    overflow-y: scroll;
+}
+.eventCardsWraper2::-webkit-scrollbar {
+    display: none;
+  }

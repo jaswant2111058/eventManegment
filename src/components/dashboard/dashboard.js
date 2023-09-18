@@ -8,11 +8,14 @@ import Statics from "./statics/statics"
 import Contactus from "./contactus/contactus"
 import { FaUser,FaUserCircle,FaGripHorizontal,FaArrowRight,FaArrowLeft,FaPaperPlane,FaSortAmountUp } from 'react-icons/fa';
 import { HiViewGridAdd,HiOutlineLogout } from "react-icons/hi";
+import { useData } from "../context/DataContext";
 
 
 
 const Dashboard = () => {
 
+
+  const { isLoading } = useData();
     const [ board ,setBoard] =useState(3)
 
     function select(arg){
@@ -43,12 +46,17 @@ const Dashboard = () => {
         default: screen = <DashboardShow/>
         break;
       }
-
-
+      let loader = ""
+    if (isLoading) {
+        loader = <img className="loader" src="./images/loading.png!sw800" />
+        document.getElementById("wraper").style.opacity = "0.5"
+    }
+  
 
     return (
         <>
-            <div className="wraper">
+         {loader}
+            <div className="wraper" id="wraper">
                 <div className="menubar">
                     <div className="header">
                     <img className="logo" src="./images/logo.jpg" alt="LoGO"/>

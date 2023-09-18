@@ -129,10 +129,10 @@
        margin-left: 5px;
        cursor: pointer;
    }
-   .mainwrap>img{
+   .loader{
     height:100px;
     position: fixed;
     margin-left: 50vw;
     margin-top: 50vh;
-    opacity:1.5;
+    opacity:2;
    }

@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react"
 import "./addevent.css"
 import axios from "axios"
+import { useData } from "../../context/DataContext"
 
 
 
 const AddEvent = () => {
 
-    const user = JSON.parse(localStorage.getItem("user"))
+     const {startLoading, stopLoading,user } = useData();
+
     const [imgurl, setImgurl] = useState([])
     const [formData, setFormData] = useState({})
-    const [isLoading, setIsLoading] = useState(false)
+    const [saveData, setsaveData] = useState()
     const baseURL = "http://localhost:5000"
 
     async function upload() {
-        setIsLoading(true)
+        startLoading()
         var formData = new FormData();
         var imagefile = document.querySelector('#file');
         formData.append("image", imagefile.files[0]);
@@ -25,23 +27,31 @@ const AddEvent = () => {
         }).then((res, err) => {
             if (err) {
                 window.alert(err)
-                setIsLoading(false)
+                stopLoading()
             }
             else {
                 setImgurl([...imgurl, res.data])
-                setIsLoading(false)
+                stopLoading()
             }
         })
     }
 
+    //  useEffect(() => {
+    //     let filledData = JSON.parse(localStorage.getItem("incomplete"))
+    //     for (let key in filledData) {
+    //         if (filledData.hasOwnProperty(key)) {
+    //             document.querySelector(`.${key}`).value = filledData[key]
+    //         }
+    //     }
+    //  },[])
+
     useEffect(() => {
-        let filledData = JSON.parse(localStorage.getItem("incomplete"))
-        for (let key in filledData) {
-            if (filledData.hasOwnProperty(key)) {
-                document.querySelector(`.${key}`).value = filledData[key]
-            }
+        const storedData = localStorage.getItem('incomplete');
+        if (storedData) {
+        setFormData(JSON.parse(storedData));
         }
-    }, [])
+      }, []);
+
 
     function handleChange(e) {
         let data = formData
@@ -61,8 +71,11 @@ const AddEvent = () => {
 
     async function finalSubmit() {
 
+        startLoading()
         let data = {
             name: formData.name,
+            time:formData.time,
+            date:formData.date,
             venue: formData.venue,
             seats: {
                 front: formData.front,
@@ -78,28 +91,34 @@ const AddEvent = () => {
                 normal: formData.pricenormal,
                 primium: formData.priceprimium,
             },
-            user_id: user.userid,
+            user_id:"sertygcvbhjo45678",
             title: formData.title,
-            content: formData.content
+            content: formData.content,
+            img:imgurl
         }
-        await axios.post(`${baseURL}/addevent`, data, {
+        await axios.post("http://localhost:5000/addevent",data, {
             headers: {
                 'Content-Type': '"application/json',
                 'Authorization': `${user.token}`
             }
-        }).then((res, err) => {
+        }
+        ).then((res, err) => {
             if (err) {
                 window.alert(err)
-                setIsLoading(false)
+                stopLoading()
             }
             else {
                 window.alert(res.data.msg)
+                stopLoading()
                 localStorage.removeItem("incomplete")
             }
         })
 
     }
 
+    function handleChangeN(e){
+            setsaveData(e.target.value)
+    }
     return (
         <>
         <div className="mainwraper">
@@ -111,7 +130,24 @@ const AddEvent = () => {
                         <input className="name"
                             name="name"
                             type="text"
+                            value={saveData}
                             placeholder="Enter Name"
+                            onChange={handleChange}
+                            required
+                        />
+                        <p>City</p>
+                        <input className="city"
+                            name="venue"
+                            type="text"
+                            placeholder="Enter City"
+                            onChange={handleChange}
+                            required
+                        />
+                        <p>Full Adderess</p>
+                        <input className="address"
+                            name="address"
+                            type="text"
+                            placeholder="Enter Address"
                             onChange={handleChange}
                             required
                         />
@@ -150,7 +186,6 @@ const AddEvent = () => {
                             onChange={handleChange}
                             required
                         />
-                    </div>
                     <div className="lowerhalf">
                         <p>Enter Seat Details</p>
 
@@ -270,6 +305,8 @@ const AddEvent = () => {
                             </table>
                         </div>
                     </div>
+                    </div>
+                    
 
 
                 </div>
@@ -287,7 +324,6 @@ const AddEvent = () => {
                     
                     <p>Image Preview</p>
                     <div className="imgpreview">
-
                         {imgpreview}
                     </div>
                 </div>

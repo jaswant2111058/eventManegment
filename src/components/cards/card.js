@@ -7,7 +7,6 @@ const Cards =()=>{
             <h2>
                 Recents On going
             </h2>
-
         </div>
             <div className="cards1">
                 <img src="./images/3.png"/>
