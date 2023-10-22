@@ -39,7 +39,7 @@ const Account =()=>{
                         Event View
                     </button>
                     <button className="Btn2" onClick={()=>setaccBoard("profession")}>
-                        Profession View
+                        About You
                     </button>
                     <button className="Btn4" onClick={()=>setaccBoard("bank")}>
                         Bank Account

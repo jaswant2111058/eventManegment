@@ -5,10 +5,11 @@ const Schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    venue:{
+    city:{
         type:String,
         required: true
     },
+    title:String,
     eventId:{
         type:String,
         require:true

@@ -10,9 +10,7 @@ const sendmail2 = require('../utils/mail_linksender')
 exports.authMiddleware = async (req, res, next) => {
     try {
 
-        
         const authorization_header_token = req.headers.authorization;
-        console.log(authorization_header_token)
         if (!authorization_header_token) {
             return res.status(401).json({
                 message: "Unauthorized"
@@ -79,7 +77,6 @@ exports.register = async (req, res) => {
           })
 
         //check if team already exists
-        
 
         // else save team
     } catch (error) {

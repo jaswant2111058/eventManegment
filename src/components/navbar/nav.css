@@ -1,6 +1,6 @@
-
-
-
+.nav-main{
+    width: 100vw;
+}
 .navbar{
         display: flex;
         justify-content: space-between;
@@ -8,10 +8,10 @@
         padding-left: 10%;
         padding-right: 10%;
         height:4rem;
-        background-color: #00171f;
+        background-color: whitesmoke;
         align-items: center;
         cursor: pointer;
-        color: #ffffff;
+        color: #0892f5;
 }
 .leftside{
     display: flex;
@@ -19,14 +19,25 @@
 }
 .search_bar{
     display: flex;
+    width: 250px;
     gap: 0.3rem;
     font-size: 1.4rem;
+    position: relative;
+}
+.btn1
+{
+    margin-top: 5px;
+  
 }
 .btn2{
-    border: solid #ffffff 2px;
+    border: none;
     border-radius: 10px;
     width: 90px;
     text-align: center;
+    background-color: #0892f5;
+    color: whitesmoke;
+    height: 30px;
+    padding-top:4px ;
 }
 .logo>img{
   
@@ -35,25 +46,36 @@
     mix-blend-mode: lighten;
     filter: contrast(500%);
 }
-.logo{
 
-}
 .search_place{
-    border-radius: 10px;
-    border: solid #ffffff 3px;
+    border-radius: 4px;
+    border: solid slategrey 1px;
     min-width: 200px;
     height: 25px;
     text-align: center;
-    background-color: inherit;
+    background-color: transparent;
     font-size: 1.1rem;
-    color: #ffffff;
+    color: #0892f5;
+}
+.search_place:focus{
+    outline: none;
+    border: solid slategrey 2px;
+    
+}
+
+.search_place::placeholder{
+
+    color: #003459;
+
+
+    
 }
 .nav2{
     display: flex;
     justify-content: space-between;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: #003459;
+    background-color: #0892f5;
     height: 40px;
     align-items: center;
     font-size: 16.8px;
@@ -86,7 +108,7 @@
     height: 600px;
     z-index: 1;
     position: fixed;
-    background-color: yellow;
+    background-color: #40B59F;
     transition: 1000ms;
     overflow: hidden;
 }
@@ -96,4 +118,23 @@
     margin-top: 5px;
     margin-right: 5px;
     font-size: 1.5rem;
+}
+.searchResult{
+
+    color: #00171f;
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.search_result{
+    background-color:#fff;
+    width: 350px;
+    overflow: auto;
+    max-height: 600px;
+    z-index: 1;
+    position:absolute;
+    top:0;
+    margin-top: 28px;
+    border-radius: 5px;
 }

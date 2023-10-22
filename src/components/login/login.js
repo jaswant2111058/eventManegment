@@ -65,7 +65,7 @@ const Login = () => {
                 else {
                     stopLoading();
                     setUser(res.data.user)
-                    localStorage.setItem("user", JSON.stringify(res.data.user))
+                    sessionStorage.setItem("user", JSON.stringify(res.data.user))
                     window.alert(res.data.msg)
                     document.getElementById("login").style.opacity = "1"
                     navigate("/lsevents")
@@ -99,24 +99,19 @@ const Login = () => {
     }
     let loader = ""
     if (isLoading) {
-        loader = <img className="loader" src="./images/loading.png!sw800" />
+        loader = <img className="loader" src="./images/cheetah.gif" />
         document.getElementById("login").style.opacity = "0.5"
     }
 
     return (
         <>
-            <div className="mainwrap">
+        <div className="mainwrap">
                 {loader}
-                <div className="headers">
-                    <img src="./images/BOlogo.jpg" />
-                    <h3>WELCOME TO THE BOOKING OFFICE</h3>
-                </div>
                 <div className="login" id="login">
-
-                    <div className=""></div>
+                   
                     <div className="signupwrap" id="signupwrap">
-                        <div className="signup" >
-
+                        <h3>WELCOME</h3>
+                      <div className="signup" >
                             <input className="username"
                                 name="username"
                                 type="text"
@@ -153,14 +148,18 @@ const Login = () => {
                                 Signup
                             </button>
                             <div className="gotologin">
-                                <p>  Allready have Account</p> <a onClick={() => {
-                                    document.getElementById("loginwrap").style.translate = "0rem"
-                                    document.getElementById("signupwrap").style.translate = "-500rem"
+                                <p>  Allready have Account <a onClick={() => {
+                                        document.getElementById("bg3").style.translate="-350px"
+                                        document.getElementById("signupwrap").style.translate="-350px"
+                                        document.getElementById("loginwrap").style.translate="-350px"
                                 }}>Login</a>
+                                </p>
                             </div>
                         </div>
                     </div>
+                    <img className="bg3" id="bg3" src="./images/bg3.jpg" alt=" "/>
                     <div className="loginwrap" id="loginwrap">
+                        <h3>WELCOME BACK</h3>
                         <div className="loginmain" >
                             <input className="email"
                                 name="email"
@@ -179,16 +178,20 @@ const Login = () => {
                             <button onClick={() => login()}>
                                 Login
                             </button>
-                            <div className="gotosignup" >
-                                <p>  Not have Account </p> <a onClick={() => {
-                                    document.getElementById("loginwrap").style.translate = "500rem"
-                                    document.getElementById("signupwrap").style.translate = "0rem"
+                            <div className="gotologin" >
+                                <p>  Not have Account <a onClick={() => {
+                                    document.getElementById("bg3").style.translate="0px"
+                                    document.getElementById("signupwrap").style.translate="0px"
+                                    document.getElementById("loginwrap").style.translate="0px"
                                 }}>SignUp</a>
+                                </p> 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+         
+        </div>
 
         </>
     )

@@ -4,13 +4,24 @@ exports.serverStatus = (req, res, next) => {
     res.status(200).send("Server is up and running.")
 }
 
-
 exports.showSearch = async(req, res, next) =>{
     try {
         const query = req.query.q
-        const withName = await search.find({name:query})  
-        const withVenue = await search.find({venue:query})  
-        res.status(200).send({withName},{withVenue});
+        if(query.length<3){
+            res.status(401).send(
+                "enter minimum 3 letters"
+            )
+        }
+        else{
+        const findData = await search.find({
+            $or: [
+                { title: { $regex: query, $options: 'i' } },
+                { name: { $regex: query, $options: 'i' } },
+                {city:{$regex:query,$options:'i'}}
+              ]
+        })
+        res.status(200).send(findData);
+    }
     } catch (error) {
         res.status(500).json({
             message : error.message

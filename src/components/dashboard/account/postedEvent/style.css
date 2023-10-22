@@ -1,14 +1,34 @@
 .mainWraper{
     display: flex;
     margin-top: 30px;
+    gap:2rem ;
     flex-wrap: wrap;
-    justify-content: space-between;
-}
-.eventCardsWraper2{
-    margin-top: 10px;
-    max-height: 55vh;
-    overflow-y: scroll;
+    justify-content:center;
 }
 .eventCardsWraper2::-webkit-scrollbar {
     display: none;
   }
+.PostedEventLefthalf,.PostedEventRightHalf{
+
+    padding: 20px ;
+    background-color: #fff;
+    box-shadow: 1px 1px 5px 0px gray;
+    border-radius: 10px;
+    margin:10px 0px;
+
+  }
+
+  .eventWraper2{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    gap: 2rem;
+    width: 35vw;
+    max-height: 55vh;
+    overflow-y: scroll;
+
+  }
+.eventWraper2::-webkit-scrollbar{
+    display: none;
+}

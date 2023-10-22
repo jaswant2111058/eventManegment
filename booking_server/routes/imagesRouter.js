@@ -17,7 +17,7 @@ const upload = multer({storage : storage });
 
 
 router.post('/upload', upload.single('image'),
-userController.authMiddleware,
+//userController.authMiddleware,
 imagesController.upload
 );
 router.get('/img/:_id',

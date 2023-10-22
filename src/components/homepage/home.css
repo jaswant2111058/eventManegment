@@ -1,0 +1,23 @@
+.card-main{
+    width: 100vw;
+}
+.avaliable-cards{
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    gap: 2vw;
+}
+.recents-cards{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80vw;
+   
+}
+.recents-cards>h1{
+    margin: 20px 0px;
+    font-size: 25px;
+}
+.avaliable-cards::-webkit-scrollbar{
+   display: none;
+
+}

@@ -12,27 +12,24 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setLoading] = useState(false);
   const [user,setUser]=useState({})
   const baseURL = "http://localhost:5000"
-
-
   const startLoading = () => {
     setLoading(true);
   };
 
   const stopLoading = () => {
-    document.getElementById("wraper").style.opacity = "1"
     setLoading(false);
   };
-
   useEffect(()=>{
-      const isUser = localStorage.getItem("user")
+      const isUser = sessionStorage.getItem("user")
       setUser(isUser?JSON.parse(isUser):"")
   },[])
   useEffect(() => {
-    const performSearch = async () => {
+
     
+    const performSearch = async () => {
       try {
         const response = await axios.get(`${baseURL}/search?q=${query}`); 
-            if(!response){
+            if(response){
               setResults(response.data);
             }
       } catch (error) {
@@ -40,10 +37,9 @@ export const DataProvider = ({ children }) => {
       } 
     };
 
-    if (query) {
+    if (query.length>2) {
       performSearch();
     } else {
-      // Clear the results when the query is empty
       setResults([]);
     }
   }, [query]);

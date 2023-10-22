@@ -7,7 +7,7 @@
 }
 .mainadd{
     width: auto;
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -36,7 +36,7 @@
 
 .content{
     width: 300px;
-    height: 163px;
+    height: 133px;
     padding: 20px;
     margin-bottom:20px;
     
@@ -73,12 +73,12 @@
     margin-left: auto;
     margin-right: auto;
     max-width: 330px;
-    height: 600px;
-    border: 1px solid ;
+    height: 500px;
     padding:0px 10px ;
 }
 .imgpreview{
-    
+    border: solid 1px;
+    height: 370px;
     border-top: 1px solid ;
     padding-top: 10px;
 }
@@ -115,13 +115,15 @@
 }
 .submitBtn{
     display: block;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 70px;
+    width: 90px;
     height: 30px;
     border-radius: 10px;
-    border: 1px solid;
-    background-color: rgba(14, 146, 198, 0.251);
+    color:aliceblue;
+    border: none;
+    background-color:#4e73df;
     font-size: larger;
 }
 .submitBtn:active{

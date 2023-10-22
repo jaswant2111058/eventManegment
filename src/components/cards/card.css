@@ -1,22 +1,48 @@
 
 
-.cards1{
-    margin-top: 20px;
-    display: flex;
-    gap: 1.3rem;
-    overflow-x: scroll;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
 
+.cardMain{
+
+  height: 26.5vw;
+  background-color: black;
+  border-radius:10px ;
+  box-shadow: 1px 1px 5px;
+ 
 }
-.cards1>img{
-    height: 20.5vw;
+
+.card-images{
+  border-top-right-radius:10px ;
+  border-top-left-radius:10px ;
+    height: 21.5vw;
+    width: 14.3vw;
+   
 }
 .recents{
     margin-top: 20px;
-    margin-left: 10%;
+    margin-left: 10px;
 }
+.rating-votes{
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  color: aliceblue;
+  background-color: black;
+  margin-top: -4px;
+}
+
+.show-name{
+  font-size: large;
+  font-weight:700 ;
+  color: #fff;
+  padding-left: 10px;
+}
+.show-type{
+  font-size: large;
+  font-weight:lighter;
+  color: rgb(134, 132, 132); 
+  padding-left: 10px;
+}
+
 .cards1::-webkit-scrollbar {
     height: 0px;
   }

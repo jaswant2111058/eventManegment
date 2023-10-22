@@ -3,14 +3,11 @@ const router = express.Router();
 const { body, query, param } = require('express-validator');
 const searchController = require('../controllers/searchController')
 
-
-
 router.get('/search',
 
     [
         query("q").exists().withMessage('query not found')
     ],
-
         searchController.showSearch
 );
 router.post('/addreview',

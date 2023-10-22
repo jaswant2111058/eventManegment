@@ -1,48 +1,35 @@
 import "./card.css"
+import {FaStar} from "react-icons/fa"
 
-const Cards =()=>{
+const Cards =({cardDetails})=>{
+
+
+
     return(
         <>
-        <div className="recents">
-            <h2>
-                Recents On going
-            </h2>
-        </div>
-            <div className="cards1">
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
+
+        <div className="cardMain">
+            <div className="cardImages-wrapper">
+                <img className="card-images" src={cardDetails?.imgUrl?cardDetails.imgUrl:"./images/card-1.jpg"} alt="coming"/>
             </div>
-        <div className="nerayou recents">
-            <h2>
-                Events Near You
-            </h2>
-        </div>
-        <div className="cards1">
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
+            <div className="rating-votes">
+            
+            <div className="rating">
+            <FaStar/> {cardDetails?.rating?cardDetails.rating:"4.5/5"}
             </div>
-            <div className="recents">
-            <h2>
-                Top Searched
-            </h2>
+            <div className="votes">
+                {cardDetails?.votes?cardDetails.votes:"4.5"} k Votes
+            </div>
+            </div>
+            <div className="show-name">
+                {cardDetails?.name?cardDetails.name:"Mera Naam Ballu"}
+            </div>
+            <div className="show-type">
+                {cardDetails?.type?cardDetails.type: "Comedy/Drama"}
+            </div>
 
         </div>
-            <div className="cards1">
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-            </div>
+       
         </>
     )
 }

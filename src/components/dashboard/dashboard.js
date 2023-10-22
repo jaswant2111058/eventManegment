@@ -6,26 +6,30 @@ import AddEvent from "./addevent/addevent"
 import Clashes from "./clashes/clashes"
 import Statics from "./statics/statics"
 import Contactus from "./contactus/contactus"
-import { FaUser,FaUserCircle,FaGripHorizontal,FaArrowRight,FaArrowLeft,FaPaperPlane,FaSortAmountUp } from 'react-icons/fa';
+import { FaUser,FaUserCircle,FaSearch,FaGripHorizontal,FaArrowRight,FaArrowLeft,FaPaperPlane,FaSortAmountUp } from 'react-icons/fa';
 import { HiViewGridAdd,HiOutlineLogout } from "react-icons/hi";
 import { useData } from "../context/DataContext";
 
 
 
 const Dashboard = () => {
-
-
   const { isLoading } = useData();
     const [ board ,setBoard] =useState(3)
 
     function select(arg){
         setBoard(arg)
         document.getElementById(`${arg}`).style.backgroundColor="white"
+        document.getElementById(`${arg}`).style.color="#4e73df"
         document.getElementById(`${(arg+1)%6}`).style.backgroundColor="transparent"
         document.getElementById(`${(arg+2)%6}`).style.backgroundColor="transparent"
         document.getElementById(`${(arg+3)%6}`).style.backgroundColor="transparent"
         document.getElementById(`${(arg+4)%6}`).style.backgroundColor="transparent"
         document.getElementById(`${(arg+5)%6}`).style.backgroundColor="transparent"
+        document.getElementById(`${(arg+1)%6}`).style.color="white"
+        document.getElementById(`${(arg+2)%6}`).style.color="white"
+        document.getElementById(`${(arg+3)%6}`).style.color="white"
+        document.getElementById(`${(arg+4)%6}`).style.color="whitw"
+        document.getElementById(`${(arg+5)%6}`).style.color="white"
     }
 
     let screen 
@@ -50,15 +54,13 @@ const Dashboard = () => {
     if (isLoading) {
         loader = <img className="loader" src="./images/loading.png!sw800" />
         document.getElementById("wraper").style.opacity = "0.5"
-    }
-  
-
+    }   
     return (
         <>
          {loader}
             <div className="wraper" id="wraper">
                 <div className="menubar">
-                    <div className="header">
+                    <div className="header"> 
                     <img className="logo" src="./images/logo.jpg" alt="LoGO"/>
                     <h3><FaUser/> Name</h3>
                     </div>
@@ -82,19 +84,43 @@ const Dashboard = () => {
                           <FaPaperPlane/>  Contact Us
                         </button>
                         <button className="logout" >
-                         <HiOutlineLogout/>   Logout
+                         <HiOutlineLogout/> Logout
                         </button>
                     </div>
                 </div>
                 <div className="showbar">
+                  <div className="dashNav">
+
+                      <div className="dashSerach">
+                        <input
+                        className="searchBox"
+                        type="text"
+                        name="search"
+                        placeholder="Search For..."
+                        />
+                        <div className="searchIcons">
+                        <FaSearch/>
+                        </div>
+
+                      </div>
+
+                      <div className="navProfile">
+
+                        <div className="profileName">
+                          Jaswant Kushwaha
+                        </div>
+                        <div className="profileImg">
+                        <FaUser/>
+                        </div>
+
+                      </div>
+
+
+                  </div>
+                  
                     {screen}
                 </div>
-
             </div>
-
-
-
-
         </>
     )
 
