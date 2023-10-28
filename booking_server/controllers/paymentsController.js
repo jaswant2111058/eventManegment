@@ -48,7 +48,6 @@ exports.paymentverify = async(req, res) => {
             signature,
             ticket_id
             } = req.body
-
         let body = order_id + "|" + payment_id;
         var expectedSignature = crypto.createHmac('sha256',process.env.KEY_SECRET)
         .update(body.toString())

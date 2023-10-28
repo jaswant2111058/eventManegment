@@ -10,6 +10,7 @@ export const DataProvider = ({ children }) => {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
   const [isLoading, setLoading] = useState(false);
+  const[scanResult,setScanResult]=useState(null)
   const [user,setUser]=useState({})
   const baseURL = "http://localhost:5000"
   const startLoading = () => {
@@ -23,9 +24,7 @@ export const DataProvider = ({ children }) => {
       const isUser = sessionStorage.getItem("user")
       setUser(isUser?JSON.parse(isUser):"")
   },[])
-  useEffect(() => {
-
-    
+  useEffect(() => {  
     const performSearch = async () => {
       try {
         const response = await axios.get(`${baseURL}/search?q=${query}`); 
@@ -53,7 +52,9 @@ export const DataProvider = ({ children }) => {
        startLoading, 
        stopLoading,
        user,
-       setUser
+       setUser,
+       scanResult,
+       setScanResult
        }}>
       {children}
     </DateContext.Provider>

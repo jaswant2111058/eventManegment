@@ -1,31 +1,32 @@
 import "./card.css"
 import {FaStar} from "react-icons/fa"
+import { useNavigate } from "react-router-dom"
 
-const Cards =({cardDetails})=>{
+const Cards =({imgUrl,rating,votes,name,type,_id})=>{
 
-
+    const navigate = useNavigate();
 
     return(
         <>
 
-        <div className="cardMain">
+        <div className="cardMain" onClick={()=>{navigate(`/bookevent/${_id}`)}}>
             <div className="cardImages-wrapper">
-                <img className="card-images" src={cardDetails?.imgUrl?cardDetails.imgUrl:"./images/card-1.jpg"} alt="coming"/>
+                <img className="card-images" src={imgUrl?`http://localhost:5000/img/${imgUrl}`:"./images/card-1.jpg"} alt="coming"/>
             </div>
             <div className="rating-votes">
             
             <div className="rating">
-            <FaStar/> {cardDetails?.rating?cardDetails.rating:"4.5/5"}
+            <FaStar/> {rating?rating:"4.5/5"}
             </div>
             <div className="votes">
-                {cardDetails?.votes?cardDetails.votes:"4.5"} k Votes
+                {votes?votes:"4.5"} k Votes
             </div>
             </div>
             <div className="show-name">
-                {cardDetails?.name?cardDetails.name:"Mera Naam Ballu"}
+                {name?name:"Mera Naam Ballu"}
             </div>
             <div className="show-type">
-                {cardDetails?.type?cardDetails.type: "Comedy/Drama"}
+                {type?type: "Comedy/Drama/Action"}
             </div>
 
         </div>

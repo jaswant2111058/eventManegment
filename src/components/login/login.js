@@ -119,7 +119,6 @@ const Login = () => {
                                 required
                                 onChange={handleChangename}
                             />
-
                             <input className="email"
                                 name="email"
                                 type="text"

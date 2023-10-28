@@ -25,6 +25,9 @@ const Schema = new mongoose.Schema({
         type:String,
         required: true
     },
+    event_type:{
+       type:String,
+    },
     seats:{
         front:Number,
         middel:Number,

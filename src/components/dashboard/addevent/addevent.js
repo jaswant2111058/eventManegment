@@ -11,7 +11,7 @@ const AddEvent = () => {
 
     const [imgurl, setImgurl] = useState([])
     const [formData, setFormData] = useState({})
-    const [saveData, setsaveData] = useState()
+  //  const [saveData, setsaveData] = useState()
     const baseURL = "http://localhost:5000"
 
     async function upload() {
@@ -19,9 +19,7 @@ const AddEvent = () => {
         var formData = new FormData();
         var imagefile = document.querySelector('#file');
         formData.append("image", imagefile.files[0]);
-        const data = {
-            
-        }
+      
         try {
             await axios.post(`${baseURL}/upload`, formData, {
                 headers: {
@@ -79,7 +77,7 @@ const AddEvent = () => {
     let imgpreview = imgurl.map((id) => {
         return (
             <>
-                <img className="priview" src={baseURL +`/img/${id}`} alt="img" />
+                <img className="priview" src={baseURL + `/img/${id}`} alt="img" />
             </>
         )
     })
@@ -91,11 +89,18 @@ const AddEvent = () => {
         let data = {
             name: formData.name,
             startTime: formData.startTime,
-            endTime:formData.endTime,
-            date:formData.date,
-            fullAddress:formData.fullAddress,
+            endTime: formData.endTime,
+            date: formData.date,
+            fullAddress: formData.fullAddress,
             city: formData.city,
-            seats:{
+            seats: {
+                front: formData.front,
+                middel: formData.middel,
+                back: formData.back,
+                normal: formData.normal,
+                primium: formData.primium,
+            },
+            available_seats: {
                 front: formData.front,
                 middel: formData.middel,
                 back: formData.back,
@@ -109,14 +114,15 @@ const AddEvent = () => {
                 normal: formData.pricenormal,
                 primium: formData.priceprimium,
             },
+            event_type: formData.event_type,
             user_id: user.user_id,
             content: formData.content,
             img: imgurl
         }
         console.log(data);
         try {
-            await axios.post("http://localhost:5000/addevent", data
-                ,{
+            await axios.post("http://localhost:5000/addevent", data,
+                {
                     headers: {
                         'Authorization': `${user.token}`
                     }
@@ -148,21 +154,21 @@ const AddEvent = () => {
         }
     }
 
-    function handleChangeN(e) {
-        setsaveData(e.target.value)
-    }
+    // function handleChangeN(e) {
+    //     setsaveData(e.target.value)
+    // }
     return (
         <>
             <div className="mainwraper">
                 <h2>EVENT DETAIL</h2>
                 <div className="mainadd">
-                    <div className="upperhalf">
+                    {/* <div className="upperhalf"> */}
                         <div className="detail">
                             <p>Name Of Event</p>
                             <input className="name"
                                 name="name"
                                 type="text"
-                                value={saveData}
+                                // value={saveData}
                                 placeholder="Enter Name"
                                 onChange={handleChange}
                                 required
@@ -200,11 +206,31 @@ const AddEvent = () => {
                                 onChange={handleChange}
                                 required
                             />
+                            <p>End Time</p>
+                            <input className="time"
+                                name="endTime"
+                                type="time"
+                                placeholder="Enter the time"
+                                onChange={handleChange}
+                                required
+                            />
+                            <div>
+                                <p>Event Type</p>
+                                <select name="event_type" id="event_type" onChange={handleChange}>
+                                    <option value="">select</option>
+                                    <option value="movie">movie</option>
+                                    <option value="sports">sports</option>
+                                    <option value="play">play</option>
+                                    <option value="standup">standup</option>
+                                    <option value="streams">streams</option>
+                                    <option value="other">other</option>
+                                </select>
+                            </div>
                         </div>
                         <div className="upperhalf2">
-                            <p>End Time</p>
+                            <p>Title</p>
                             <input className="title"
-                                name="endTime"
+                                name="title"
                                 type="string"
                                 placeholder="Enter the Title"
                                 onChange={handleChange}
@@ -341,7 +367,7 @@ const AddEvent = () => {
 
 
 
-                    </div>
+                    {/* </div> */}
                     <div>
                         <div className="upperhalf3">
                             <p>Upload Images </p>

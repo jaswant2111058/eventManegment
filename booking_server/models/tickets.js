@@ -5,6 +5,18 @@ const Schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    payment_id:{
+        type: String,
+        required: true
+     },
+    ticket_hash:{ 
+        type: String,
+        required: true
+    },
+    event_name:{
+        type: String,
+        required: true
+    },
     email : {
         type: String,
         required: true
@@ -13,7 +25,7 @@ const Schema = new mongoose.Schema({
         type:String,
         required: true
     },
-    venue:{
+    fullAddress:{
         type:String,
         required: true
     },

@@ -1,9 +1,7 @@
 
 
 .detail >h2{
-
     text-align: center;
-
 }
 .mainadd{
     width: auto;
@@ -11,34 +9,48 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 3rem;
+    gap:5rem;
     
 }
 .detail>p{
     font-size: medium;
     color: rgb(14, 146, 198);
-    margin-top: 25px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 .detail >input{
     width: 300px;
-    height: 55px;
+    height: 45px;
+    margin-bottom: 10px;
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
     padding-left:10px;
     font-size: large;
+    background-color: transparent;
     
+}
+.detail >input:focus{
+    outline: none;
 }
 .detail{
     margin-bottom: 20px;
 }
+.detail>div{
+    display:flex;
+    justify-content: space-between;
+    font-size: medium;
+    color: rgb(14, 146, 198);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
 
 .content{
     width: 300px;
-    height: 133px;
+    height: 220px;
     padding: 20px;
     margin-bottom:20px;
+    background-color: transparent;
     
 }
 
@@ -53,17 +65,21 @@
 .upperhalf2>p,.upperhalf3>p{
         font-size: medium;
         color: rgb(14, 146, 198);
-        margin-top: 25px;
+        margin-top: 10px;
         margin-bottom: 10px;
 }
 .upperhalf2>input{
     width: 300px;
-    height: 55px;
+    height: 45px;
     border-left: 0px;
     border-right: 0px;
     border-top: 0px;
     padding-left:10px;
     font-size: large;
+    background-color: transparent;
+}
+.upperhalf2>input:focus{
+    outline: none;
 }
 .file{
     color:rgb(14, 146, 198) ; 
@@ -72,13 +88,13 @@
     overflow:auto;
     margin-left: auto;
     margin-right: auto;
-    max-width: 330px;
-    height: 500px;
+    width: 360px;
+    height: 550px;
     padding:0px 10px ;
 }
 .imgpreview{
     border: solid 1px;
-    height: 370px;
+    height: 450px;
     border-top: 1px solid ;
     padding-top: 10px;
 }

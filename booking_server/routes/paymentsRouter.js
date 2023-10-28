@@ -4,7 +4,6 @@ const { body, query, param } = require('express-validator');
 const restaurantsController = require('../controllers/restaurantsController')
 
 
-
 router.post('/showrestaurants',
     restaurantsController.showRestaurants
 );

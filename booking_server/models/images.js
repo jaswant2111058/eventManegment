@@ -5,7 +5,7 @@ const imageSchema = new mongoose.Schema({
     event_id:String,
     user_id:String,
     type:Boolean,
-      img:{
+    img:{
           data: Buffer,
           contentType: String
       }

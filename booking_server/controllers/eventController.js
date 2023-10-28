@@ -24,6 +24,7 @@ exports.addEvent = async (req, res) => {
             date,
             startTime,
             fullAddress,
+            event_type,
             price,
             available_seat,
             seats,
@@ -38,6 +39,7 @@ exports.addEvent = async (req, res) => {
             date,
             startTime,
             fullAddress,
+            event_type,
             price,
             available_seat,
             seats,
@@ -73,6 +75,7 @@ exports.updateEvent = async (req, res) => {
             available_seat,
             seats,
             user_id,
+            event_type,
             img,
             content,
             venue
@@ -87,6 +90,7 @@ exports.updateEvent = async (req, res) => {
             price,
             available_seat,
             seats,
+            event_type,
             user_id,
             img,
             content,
@@ -107,6 +111,7 @@ exports.updateEvent = async (req, res) => {
         // await users.updateOne({ _id: user_id }, { events: events_id })
         res.status(200).send({ msg: "saved", event: saved });
     }   catch (error) {
+        console.log(error)
         res.status(500).json({
             message: error.message
         })
@@ -131,3 +136,45 @@ exports.deleteEvent = async (req, res) => {
         })
     }
 }
+
+exports.eventList = async (req, res) => {
+
+    try {
+
+            const recentOnGoing = await event.find({event_type:"movie"}).limit(7)
+            const trendingMovie = await event.find({event_type:"movie"})
+            const laughterTherepy = await event.find({ $or: [
+                { event_type: "standup" },
+                { event_type: "other" }
+              ]})
+
+            const dataToSend={
+                recentOnGoing,
+                trendingMovie,
+                laughterTherepy
+            }
+
+            res.status(200).send(dataToSend)
+    }
+    catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+}
+exports.particular_event = async (req, res) => {
+
+    try {
+        const _id = req.params._id;
+        console.log(_id)
+            const eventlist = await event.findOne({_id})
+            res.status(200).send(eventlist)
+    }
+    catch (error) {
+        res.status(500).json({
+            message: error.message
+        })
+    }
+}
+
+

@@ -1,6 +1,5 @@
 import "./nav.css"
 import { useNavigate } from "react-router-dom";
-
 import { useData } from "../context/DataContext";
 import  {FaBars,FaTimes, FaSearch} from "react-icons/fa";
 
@@ -19,6 +18,8 @@ const Navbar=()=>{
 
 
     }
+  
+   
 
     let search_results =""
 
@@ -81,7 +82,7 @@ return(
             </div>      
         </div>
         <div className="logo">
-           LOGO
+          <img src="./images/logo2.jpg" alt=""/>
         </div>
         <div className="search_bar">
         <input className="search_place"

@@ -9,7 +9,7 @@
     height: 45px;
     border-radius: 20px;
     border: none;
-    background-color:#4e73df ;
+    background-color:#0892f5;
     margin-top: 30px;
     width: 300px;
     color: aliceblue;
@@ -62,7 +62,7 @@
     height: 45px;
     border-radius: 20px;
     border: none;
-    background-color:#4e73df ;
+    background-color:#0892f5 ;
     margin-top: 30px;
     width: 300px;
     color: aliceblue;
@@ -93,7 +93,7 @@
    }
    .mainwrap{
     padding-top: 50px; ;
-    background-color: #4e73df;
+    background-color: #0892f5;
     height: 100vh; 
    }
    .signupwrap>img{
