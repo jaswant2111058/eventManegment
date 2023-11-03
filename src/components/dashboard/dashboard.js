@@ -3,19 +3,23 @@ import { useState} from 'react';
 import Account from "./account/account"
 import DashboardShow from "./dashboardshow/dashboardshow"
 import AddEvent from "./addevent/addevent"
-import Clashes from "./clashes/clashes"
-import Statics from "./statics/statics"
+import Clashes from"./clashes/clashes"
+import Statics from "./statics/statics";
 import Contactus from "./contactus/contactus"
 import { FaUser,FaUserCircle,FaSearch,FaGripHorizontal,FaArrowRight,FaArrowLeft,FaPaperPlane,FaSortAmountUp } from 'react-icons/fa';
 import { HiViewGridAdd,HiOutlineLogout } from "react-icons/hi";
 import { useData } from "../context/DataContext";
+import { useNavigate } from "react-router-dom";
 
 
 
 const Dashboard = () => {
-  const { isLoading } = useData();
+  const { isLoading,user } = useData();
     const [ board ,setBoard] =useState(3)
+    const navigate = useNavigate()
 
+    if(!user) navigate("/login")
+    
     function select(arg){
         setBoard(arg)
         document.getElementById(`${arg}`).style.backgroundColor="white"
@@ -28,7 +32,7 @@ const Dashboard = () => {
         document.getElementById(`${(arg+1)%6}`).style.color="white"
         document.getElementById(`${(arg+2)%6}`).style.color="white"
         document.getElementById(`${(arg+3)%6}`).style.color="white"
-        document.getElementById(`${(arg+4)%6}`).style.color="whitw"
+        document.getElementById(`${(arg+4)%6}`).style.color="white"
         document.getElementById(`${(arg+5)%6}`).style.color="white"
     }
 
@@ -47,7 +51,7 @@ const Dashboard = () => {
         break;
         case 0: screen = <Contactus/> 
         break;
-        default: screen = <DashboardShow/>
+        default: screen = <DashboardShow />
         break;
       }
       let loader = ""
@@ -60,10 +64,6 @@ const Dashboard = () => {
          {loader}
             <div className="wraper" id="wraper">
                 <div className="menubar">
-                    <div className="header"> 
-                    <img className="logo" src="./images/logo.jpg" alt="LoGO"/>
-                    <h3><FaUser/> Name</h3>
-                    </div>
                     <div className="navbtns">
                         <button className="account" id="1" onClick={()=>select(1)}>
                           <FaUserCircle/>  Account
@@ -83,7 +83,12 @@ const Dashboard = () => {
                         <button className="Contactus" id="0" onClick={()=>select(0)}>
                           <FaPaperPlane/>  Contact Us
                         </button>
-                        <button className="logout" >
+                        <button className="logout" 
+                        
+                        onClick={()=>
+                          {sessionStorage.removeItem("user");
+                          navigate('/login')
+                      }} >
                          <HiOutlineLogout/> Logout
                         </button>
                     </div>
@@ -104,10 +109,12 @@ const Dashboard = () => {
 
                       </div>
 
+                      <img className="logo" src="./images/logo2.png" alt="LoGO"/>
+
                       <div className="navProfile">
 
                         <div className="profileName">
-                          Jaswant Kushwaha
+                          {user?.username}
                         </div>
                         <div className="profileImg">
                         <FaUser/>

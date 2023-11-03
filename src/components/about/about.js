@@ -10,7 +10,7 @@ const About = () => {
                             <p className="eventick"><span className="span">BOOKING</span> <span className="span">Office</span></p>
 
                             <p className="p">
-                                Eventick is a global self-service ticketing platform for live experiences that allows anyone to create,
+                                Booking Office is a global self-service ticketing platform for live experiences that allows anyone to create,
                                 share, find and attend events that fuel their passions and enrich their lives.
                             </p>
                             <a className='ancherTag' href='https://github.com/jaswant2111058'><AiFillGithub /></a>
@@ -24,7 +24,7 @@ const About = () => {
                         </div>
 
                         <div className="my-account">
-                            <div className="div">Eventick</div>
+                            <div className="div">Office</div>
                             <p className="text-wrapper">
                                 About Us<br />Press<br />Contact Us<br />Help Center<br />How it Works<br />Privacy<br />Terms
                             </p>

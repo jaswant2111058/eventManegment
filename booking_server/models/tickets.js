@@ -21,10 +21,19 @@ const Schema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date_time: {
+    date: {
         type:String,
         required: true
     },
+    startTime:{
+        type:String,
+        required: true
+    },
+    endTime:{
+        type:String,
+        required: true
+    },
+
     fullAddress:{
         type:String,
         required: true

@@ -3,7 +3,7 @@
     width: 100vw;
     margin-left: auto;
     margin-right: auto;
-    background-color: aqua;
+   
 }
 
 .booking_img2>img{
@@ -200,7 +200,7 @@
    color: rgba(0, 0, 0, 0.584);
 }
 .select_table>tr>td{
-     padding: 5px; 
+     padding: 3px; 
 }
 .heading{
     font-weight: 700;
@@ -211,10 +211,11 @@
 }
 .amount_payable{
     display: flex;
-    margin-top: 30px;
+    margin-top: 15px;
     margin-left:11%;
     gap: 1rem;
 }
+
 .preview_img{
 
     border-radius:10px;
@@ -222,7 +223,18 @@
     width: 9.3vw;
 
 }
-
+.book_input{
+    margin-left: 11%;
+    margin-top: 10px;
+    height: 30px;
+    padding-left: 10px;
+    background-color: transparent;
+    border: solid #0892f5 1px;
+    border-radius:5px;
+}
+.book_input:focus{
+    outline: none;
+}
 .priview_wrapper{
     display: flex;
     gap: 2rem;

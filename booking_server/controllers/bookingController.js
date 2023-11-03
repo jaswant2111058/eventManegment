@@ -11,13 +11,15 @@ exports.bookEvent = async (req, res) => {
             event_id,
             event_name,
             payment_id,
-            data_time,
-            fullAddress,
+            date,
+            startTime,
+            endTime,
+            fullAddress,    
             seat,
             price,
             email,
         } = req.body
-
+        console.log(req.body)
         const payment_verification = await payments.findOne({ payment_id })
         if (payment_verification && payment_verification?.verification) {
             bcrypt.hash(payment_id, 12, async function (err, hash) {
@@ -30,7 +32,9 @@ exports.bookEvent = async (req, res) => {
                         ticket_hash: hash,
                         event_name,
                         payment_id,
-                        data_time,
+                        date,
+                        startTime,
+                        endTime,
                         fullAddress,
                         seat,
                         price,
@@ -39,7 +43,8 @@ exports.bookEvent = async (req, res) => {
                     }
                     const ticket = new tickets(details);
                     const data = await ticket.save()
-                    res.status(200).json(data);
+                    console.log(data);
+                    res.status(200).send(data);
                 }
             })
         }
@@ -52,6 +57,38 @@ exports.bookEvent = async (req, res) => {
         res.send(e).status(400)
     }
 }
+
+
+
+
+exports.ticketVerification = async (req,res)=>{
+
+    try{
+        const ticket_hash = req.params.ticket_hash;
+        const verified = await tickets.findOne({ticket_hash});
+        if(verified){
+            await tickets.updateOne({_id:verified._id},{status:true})
+            res.status(200).send("verfied")
+        }
+        else{
+            res.status(400).send("not verified")
+        }
+
+    }
+    catch(e){
+        console.log(e)
+        res.status(500)
+    }
+
+
+
+
+
+}
+
+
+
+
 exports.cancelticket = async (req, res) => {
     try {
 

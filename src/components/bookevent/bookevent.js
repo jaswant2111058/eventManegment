@@ -98,8 +98,6 @@ const BookEvent = () => {
                         </div>
                     </div>
                 </div>
-
-
                 <About />
             </div>
             <div id='popup' style={{ display: "none" }}>

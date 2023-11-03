@@ -2,42 +2,40 @@
 .ticket_main{
 
 position: relative;
-margin: 30px;
-padding: 30px;
+
+padding: 20px;
 
 }
 .ticket_wrapper{
-    width:280px ;
-    border: 10px solid #0892f5;
-    border-radius: 50px;
-    height: 520px;
-    padding: 15px;
+    width:350px ;
+    border-radius: 10px;
+    height: 620px;
+    padding: 5px;
     margin-left: auto;
     margin-right: auto;
-    background-color: whitesmoke;
-    
+    background-color: rgba(245, 245, 245, 0.525);
+    box-shadow: 0px 0px 7px 0px;
 }
 .qrcode{
+   
     text-align: center;
-    color: #0892f5;
-    margin-bottom: 10px;
-
 }
 .ticket_logo>img{
-   
     display: block;
-    height: 50px;
+    height: 35px;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-
 }
 .ticket_detail{
-    border: 1px solid #0892f5;
-    border-radius: 20px;
-    height: 270px;
-    padding: 10px;
    
+    padding: 10px; 
+    text-align: center;
+}
+.ticket_detail>img{
+    height: 180px;
+    border-radius: 20px;
+
 }
 .ticket_>p{
 
@@ -48,16 +46,15 @@ padding: 30px;
 }
 .ticket_{
     display: flex;
-   ;
+    flex-wrap: wrap;
     color: #0892f5;
     margin: 8px 0px;
     font-weight: 500;
 }
 
 .ticket_print{
-   
     margin-top: 40px;
-    margin-left: 90px;
+    margin-left: 150px;
 }
 .ticket_print>button{
    

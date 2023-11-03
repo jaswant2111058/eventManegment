@@ -140,20 +140,17 @@ exports.deleteEvent = async (req, res) => {
 exports.eventList = async (req, res) => {
 
     try {
-
             const recentOnGoing = await event.find({event_type:"movie"}).limit(7)
             const trendingMovie = await event.find({event_type:"movie"})
             const laughterTherepy = await event.find({ $or: [
                 { event_type: "standup" },
                 { event_type: "other" }
               ]})
-
             const dataToSend={
                 recentOnGoing,
                 trendingMovie,
                 laughterTherepy
             }
-
             res.status(200).send(dataToSend)
     }
     catch (error) {

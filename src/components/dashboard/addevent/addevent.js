@@ -3,11 +3,10 @@ import "./addevent.css"
 import axios from "axios"
 import { useData } from "../../context/DataContext"
 
-
-
 const AddEvent = () => {
 
     const { startLoading, stopLoading, user } = useData();
+
 
     const [imgurl, setImgurl] = useState([])
     const [formData, setFormData] = useState({})
@@ -50,22 +49,12 @@ const AddEvent = () => {
         }
     }
 
-    //  useEffect(() => {
-    //     let filledData = JSON.parse(localStorage.getItem("incomplete"))
-    //     for (let key in filledData) {
-    //         if (filledData.hasOwnProperty(key)) {
-    //             document.querySelector(`.${key}`).value = filledData[key]
-    //         }
-    //     }
-    //  },[])
-
     useEffect(() => {
         const storedData = localStorage.getItem('incomplete');
         if (storedData) {
             setFormData(JSON.parse(storedData));
         }
     }, []);
-
 
     function handleChange(e) {
         let data = formData

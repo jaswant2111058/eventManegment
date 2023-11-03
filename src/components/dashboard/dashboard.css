@@ -23,13 +23,14 @@ position: relative;
 .account,.dashboard,.newevent,.clashes,.statics,.Contactus{
     display: block;
     background-color: transparent;
-    margin-left:40px;
+    margin-left:24px;
     margin-top: 30px;
     font-size: 1.2rem;
+    border-top-left-radius:20px;
+    border-bottom-left-radius:20px;
     width: 90%;
     height: 50px;
     border: none;
-    border-radius: 20px;
     cursor: pointer;
     text-align: left;
     padding-left:20px;
@@ -50,6 +51,9 @@ position: relative;
     padding-left:20px;
     color: white;
 
+}
+.account{
+    margin-top: 100px;
 }
 
 .showbar{
@@ -111,4 +115,7 @@ position: relative;
     padding-top: 5px;
     margin-top: -5px;
 }
-
+.logo{
+    height: 50px;
+    margin-top: 10px;
+}

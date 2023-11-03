@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const sendmail = require('../utils/mail_sender')
 const sendmail2 = require('../utils/mail_linksender')
+const Events = require("../models/events")
 
 // --------------authMiddleware-----------------
 
@@ -156,7 +157,6 @@ exports.login = async (req, res) => {
         });
 
         // update login_count
-
         res.status(200).send({
             msg: `user logged in`, user: {
             user_id:user._id,
@@ -207,8 +207,6 @@ exports.verifySave = async(req,res)=>{
                 const token= req.query.token
                 const username= req.query.username
                 const email= req.query.email
-
-
                 const password = jwt.verify(token, process.env.JWT_SECRET);
                 if(password){
                     bcrypt.hash(password.password, 12, async function (err, hash){ 
@@ -263,5 +261,31 @@ exports.resetPassword = async (req, res) => {
         res.status(500).json({
             message: "Something went wrong"
         });
+    }
+}
+
+exports.getEvents= async(req,res)=>{
+
+    try{
+        const _id = req.body.user_id;
+        const {events} = await users.findOne({_id})
+        res.send(events);
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).send({error:err})
+    }
+}
+
+exports.getEventsDetails= async(req,res)=>{
+
+    try{
+        const events = req.body.events;
+        const details = await Events.find({_id:{$in:events}})
+        res.send(details);
+    }
+    catch(err){
+        console.log(err);
+        res.status(500).send({error:err})
     }
 }

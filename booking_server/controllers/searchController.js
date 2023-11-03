@@ -15,11 +15,11 @@ exports.showSearch = async(req, res, next) =>{
         else{
         const findData = await search.find({
             $or: [
-                { title: { $regex: query, $options: 'i' } },
+
                 { name: { $regex: query, $options: 'i' } },
                 {city:{$regex:query,$options:'i'}}
               ]
-        })
+        }).limit(20)
         res.status(200).send(findData);
     }
     } catch (error) {

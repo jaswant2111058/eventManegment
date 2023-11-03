@@ -23,7 +23,7 @@ export const DataProvider = ({ children }) => {
   useEffect(()=>{
       const isUser = sessionStorage.getItem("user")
       setUser(isUser?JSON.parse(isUser):"")
-  },[])
+  },[user])
   useEffect(() => {  
     const performSearch = async () => {
       try {
