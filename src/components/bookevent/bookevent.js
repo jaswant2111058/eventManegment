@@ -8,6 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Carousel from '../carousel/carousel';
 const BookEvent = () => {
 
     const { event_id } = useParams()
@@ -44,9 +45,7 @@ const BookEvent = () => {
                 <Navbar />
                 <div className='booking_main'>
                     <div className='booking_wrapper'>
-                        <div className='booking_img1'>
-                            <img src='./images/corosel4.avif' alt='' />
-                        </div>
+                        <Carousel/>
                         <div className='booking_img2'>
                             <img src={loadData ? `https://eventbookingserver.onrender.com/img/${loadData.img}` : ""} alt='' />
                             <div className='booking_about'>

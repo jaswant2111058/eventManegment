@@ -24,7 +24,7 @@ const Carousel=()=>{
       }, 2000);
       return () => clearInterval(interval);
       });
-
+      const baseURL = "http://eventbookingserver.onrender.com"
    
     
     return(
@@ -36,14 +36,14 @@ const Carousel=()=>{
             <img className={images2[num[3]]} src={images[num[2]]}/>
             <img className={images2[num[4]]}src={images[num[3]]}/>
             <img className={images2[num[0]]}src={images[num[4]]}/> */}
-            <img className="first" src="./images/corosel1.avif" alt="coming"/>
-            <img className="sec" src="./images/corosel2.avif" alt="coming"/>
-            <img className="third" src="./images/corosel3.avif" alt="coming"/>
-            <img className="forth"src="./images/corosel4.avif" alt="coming"/>
-            <img className="first" src="./images/corosel1.avif" alt="coming"/>
-            <img className="fifth"src="./images/corosel2.avif" alt="coming"/>
-            <img className="third" src="./images/corosel3.avif" alt="coming"/>
-            <img className="forth"src="./images/corosel4.avif" alt="coming"/>
+            <img className="first"  src={baseURL + `/img/6547e1daa22fc89ed1b95101`} alt="coming"/>
+            <img className="sec" src={baseURL + `/img/6547e1e2a22fc89ed1b95104`} alt="coming"/>
+            <img className="third" src={baseURL + `/img/6547e1e8a22fc89ed1b95107`} alt="coming"/>
+            <img className="forth"src={baseURL + `/img/6547e1efa22fc89ed1b9510a`} alt="coming"/>
+            <img className="first" src={baseURL + `/img/6547e1daa22fc89ed1b95101`}alt="coming"/>
+            <img className="fifth"src={baseURL + `/img/6547e1e8a22fc89ed1b95107`} alt="coming"/>
+            <img className="third"src={baseURL + `/img/6547e1e2a22fc89ed1b95104`}alt="coming"/>
+            <img className="forth"src={baseURL + `/img/6547e1efa22fc89ed1b9510a`} alt="coming"/>
            
           
         </div>

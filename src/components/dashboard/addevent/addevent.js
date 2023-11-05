@@ -11,7 +11,7 @@ const AddEvent = () => {
     const [imgurl, setImgurl] = useState([])
     const [formData, setFormData] = useState({})
   //  const [saveData, setsaveData] = useState()
-    const baseURL = "https://eventbookingserver.onrender.com"
+    const baseURL = "http://eventbookingserver.onrender.com"
 
     async function upload() {
         startLoading()
