@@ -53,11 +53,18 @@ router.post('/password/reset/verify',
   ],
   userController.resetPassword
 );
+router.post('/getevents',
+  [
+    body("user_id").exists().withMessage("user_id is required"),
+  ],
+  userController.getEvents
+);
+router.post('/getevents/details',
+  userController.getEventsDetails
+);
 
 router.get('/email/verification',
 userController.verifySave
 );
-
-
 
 module.exports = router;

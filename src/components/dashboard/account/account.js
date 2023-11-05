@@ -1,32 +1,24 @@
 import "./account.css"
 import PostedEvent from "./postedEvent/postedEvent"
 import Profession from "./profession/professon"
-import ContactDetail from "./contactDetail/contactDetail"
 import BankDetail from "./BankAccDetail/bankDetail"
 import { FaUser } from 'react-icons/fa';
 import { useState} from 'react';
 
 
 const Account =()=>{
-    const [ accboard ,setaccBoard] =useState(1)
+    const [ accboard ,setaccBoard] =useState("event")
 
-    let screen 
-
-      switch (accboard) {
-        case 1: screen = <PostedEvent/> 
-        break;
-        case 2: screen = <Profession/> 
-        break;
-        case 3: screen = <ContactDetail/> 
-        break;
-        case 4: screen = <BankDetail/> 
-        break;
-        default: screen = <PostedEvent/>
-        break;
-      }
+    const screenList ={
+        "event":<PostedEvent/>,
+        "profession":<Profession/>,
+        "bank":<BankDetail/> 
+    }
 
 
-    return(
+    let Screen=screenList[accboard];
+    
+     return(
             <>
 
     
@@ -43,23 +35,20 @@ const Account =()=>{
                 </div>
                 <hr/>
                 <div className="selectBtn">
-                    <button className="Btn1" onClick={()=>setaccBoard(1)}>
+                    <button className="Btn1" onClick={()=>setaccBoard("event")}>
                         Event View
                     </button>
-                    <button className="Btn2" onClick={()=>setaccBoard(2)}>
-                        Profession View
+                    <button className="Btn2" onClick={()=>setaccBoard("profession")}>
+                        About You
                     </button>
-                    <button className="Btn3" onClick={()=>setaccBoard(3)}>
-                        Contact & Mail
-                    </button>
-                    <button className="Btn4" onClick={()=>setaccBoard(4)}>
+                    <button className="Btn4" onClick={()=>setaccBoard("bank")}>
                         Bank Account
                     </button>
                 </div>
                 <hr/>
 
                 <div className="accountScreen">
-                    {screen}
+                    {Screen}
                 </div>
 
             </div>

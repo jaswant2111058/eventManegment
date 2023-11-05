@@ -9,13 +9,24 @@ const Schema = new mongoose.Schema({
         type:String,
         required: true
     },
-    time: {
+    startTime: {
         type:String,
         required: true
     },
-    venue:{
+    endTime: {
         type:String,
         required: true
+    },
+    city:{
+        type:String,
+        required: true
+    },
+    fullAddress:{
+        type:String,
+        required: true
+    },
+    event_type:{
+       type:String,
     },
     seats:{
         front:Number,
@@ -25,7 +36,7 @@ const Schema = new mongoose.Schema({
         primium:Number,
     },
     available_seats: {
-        fronts:Number,
+        front:Number,
         middel:Number,
         back:Number,
         normal:Number,
@@ -38,16 +49,17 @@ const Schema = new mongoose.Schema({
         normal:Number,
         primium:Number
     },
-    title:String,
     user_id:String,
     img:Array, 
     content:String,
-    visits:Number
+    visits:{
+        type:Number,
+        default:0,
+    }
 },
 {
     timestamps: true
 });
 
-const events = mongoose.model("events", Schema);
-
+const events = mongoose.model("posted_events", Schema);
 module.exports = events

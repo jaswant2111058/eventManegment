@@ -1,15 +1,27 @@
-const place = require("../models/places");
+const search = require("../models/search");
 
 exports.serverStatus = (req, res, next) => {
     res.status(200).send("Server is up and running.")
 }
 
-
-exports.showReview = async(req, res, next) =>{
+exports.showSearch = async(req, res, next) =>{
     try {
-        const {city} = req.body
-        const data = await place.findOne({name:city})  
-        res.status(200).send(data.reviews);
+        const query = req.query.q
+        if(query.length<3){
+            res.status(401).send(
+                "enter minimum 3 letters"
+            )
+        }
+        else{
+        const findData = await search.find({
+            $or: [
+
+                { name: { $regex: query, $options: 'i' } },
+                {city:{$regex:query,$options:'i'}}
+              ]
+        }).limit(20)
+        res.status(200).send(findData);
+    }
     } catch (error) {
         res.status(500).json({
             message : error.message
@@ -27,7 +39,7 @@ exports.addReview = async(req, res) => {
             rate,
             expendature,
             email} = req.body
-        const data = await place.findOne({name:name})
+        const data = await search.findOne({name:name})
         const obj = {
             reviewername,
             tripMember,
@@ -38,7 +50,7 @@ exports.addReview = async(req, res) => {
         }
         data.reviews.push(obj)
         
-        await place.updateOne({name:name},{reviews:data})
+        await search.updateOne({name:name},{reviews:data})
         res.status(200).send({msg:"setted"});
     } catch (error) {
         res.status(500).json({

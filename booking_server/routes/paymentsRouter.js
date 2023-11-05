@@ -1,22 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { body, query, param } = require('express-validator');
-const restaurantsController = require('../controllers/restaurantsController')
+const paymentsControler = require('../controllers/paymentsController')
 
 
-
-router.post('/showrestaurants',
-    restaurantsController.showRestaurants
+router.post('/createorder',
+            paymentsControler.create_order_id
 );
-router.post('/addrestaurants',
-[
-    body('city').exists().withMessage('place name is required'),
-    body('name').exists().withMessage('name of resrestaurants is required'),
-    body('contact').exists().withMessage('contact is required'),
-    body('location').exists().withMessage('location is required'),
-    body('images').exists().withMessage('images is required'),
-    ],
-    restaurantsController.addRestaurants
+router.post('/paymentverification',
+             paymentsControler.payment_verify
 );
 
 module.exports = router;

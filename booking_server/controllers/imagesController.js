@@ -3,18 +3,15 @@ const images = require("../models/images");
 const fs = require("fs");
 const path = require("path");
 
-
-
 exports.upload = async(req, res, next) =>{
 
     try {
         var obj = {
-            name: req.body.name,
             img: {
-                data: fs.readFileSync(path.join(__dirname,'../uploads/' + req.file.filename )),
+                data: fs.readFileSync(path.join(__dirname,'../uploads/' + req.file.filename)),
                 contentType : "image/png"
             }
-        }
+    }
         const id = await images.create(obj)
         fs.unlinkSync(path.join(__dirname,'../uploads/' + req.file.filename ))
         res.send(id._id)
@@ -24,7 +21,6 @@ exports.upload = async(req, res, next) =>{
         })
     }
 } 
-
 
 exports.preview = async(req, res) => {
     try{

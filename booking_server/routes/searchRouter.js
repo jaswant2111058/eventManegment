@@ -1,12 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const { body, query, param } = require('express-validator');
-const reviewController = require('../controllers/reviewController')
+const searchController = require('../controllers/searchController')
 
+router.get('/search',
 
-
-router.post('/showreview',
-    reviewController.showReview
+    [
+        query("q").exists().withMessage('query not found')
+    ],
+        searchController.showSearch
 );
 router.post('/addreview',
 [
@@ -18,7 +20,7 @@ router.post('/addreview',
     body('rate').exists().withMessage('rate is required'),
     body('comment').exists().withMessage('comment is required'),
     ],
-    reviewController.addReview
+    searchController.addReview
 );
 
 module.exports = router;

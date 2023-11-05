@@ -1,86 +1,88 @@
 import "./login.css"
-import { useState, useEffect } from 'react';
-import {useNavigate} from "react-router-dom"
+import { useState } from 'react';
+import { useNavigate } from "react-router-dom"
 import axios from "axios";
+import { useData } from "../context/DataContext";
 
 
 
 const Login = () => {
 
+    const { isLoading, startLoading, stopLoading,setUser } = useData();
     const navigate = useNavigate()
-
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
-    const [isLoading, setIsLoading] = useState(false)
-    const baseURL = "http://localhost:5000"
+    const baseURL = "https://eventbookingserver.onrender.com"
+    
 
     const signup = async () => {
-        if (password !== repass&&username&&email) {
+        if (password !== repass && username && email) {
             window.alert("enter password and Repassword is not matching")
         }
         else {
-        try{
-            setIsLoading(true)
-            const user = { username, email, password }
-            await axios.post(`${baseURL}/signup`, user).then((res, err) => {
-                if (err) {
-                    window.alert(err)
-                    setIsLoading(false)
-                    document.getElementById("login").style.opacity = "1"
-                }
-                else {
-                    window.alert(res.data.message)
-                    setIsLoading(false)
-                    document.getElementById("login").style.opacity = "1"
-                }
-            })
+            try {
+                startLoading();
+                const user = { username, email, password }
+                await axios.post(`${baseURL}/signup`, user).then((res, err) => {
+                    if (err) {
+                        window.alert(err)
+                        stopLoading();
+                        document.getElementById("login").style.opacity = "1"
+                    }
+                    else {
+                        window.alert(res.data.message)
+                        stopLoading();
+                        document.getElementById("login").style.opacity = "1"
+                    }
+                })
             }
-            catch(err){
+            catch (err) {
 
                 window.alert(err)
-                setIsLoading(false)
+                stopLoading();
                 document.getElementById("login").style.opacity = "1"
             }
-            finally{
-                setIsLoading(false)
+            finally {
+                stopLoading();
                 document.getElementById("login").style.opacity = "1"
             }
         }
     }
 
     const login = async () => {
-        setIsLoading(true)
+        startLoading();
         const user = { email, password }
 
-        try{
+        try {
 
-        await axios.post(`${baseURL}/login`, user).then((res, err) =>  {
-            if (err) {
-                window.alert(err)
-                setIsLoading(false)
-                document.getElementById("login").style.opacity = "1"
-            }
-            else {
-                setIsLoading(false)
-                localStorage.setItem("user",JSON.stringify(res.data.user))
-                window.alert(res.data.msg)
-                document.getElementById("login").style.opacity = "1"
-                navigate("/lsevnets")
-            }
-        })
-    }
-    catch(err){
+            await axios.post(`${baseURL}/login`, user).then((res, err) => {
+                if (err) {
+                    window.alert(err)
+                    stopLoading();
+                    document.getElementById("login").style.opacity = "1"
+                }
+                else {
+                    stopLoading();
+                    setUser(res.data.user)
+                    sessionStorage.setItem("user", JSON.stringify(res.data.user))
+                    window.alert(res.data.msg)
+                    document.getElementById("login").style.opacity = "1"
+                    navigate("/lsevents")
+                }
+            })
+        }
+        catch (err) {
 
-        window.alert(err)
-        setIsLoading(false)
-        document.getElementById("login").style.opacity = "1"
-    }
-    finally{
-        setIsLoading(false)
-        document.getElementById("login").style.opacity = "1"
-    }
+            window.alert(err)
+            stopLoading();
+            document.getElementById("login").style.opacity = "1"
+        }
+        finally {
+            stopLoading();
+            document.getElementById("login").style.opacity = "1"
+        }
 
     }
 
@@ -96,28 +98,21 @@ const Login = () => {
     const handleChangerepass = (e) => {
         setRepass(e.target.value)
     }
-    let loader =""
-    if(isLoading){
-        loader = <img src="./images/loading.png!sw800" />
+    let loader = ""
+    if (isLoading) {
+        loader = <img className="loader" src="./images/cheetah.gif" />
         document.getElementById("login").style.opacity = "0.5"
     }
-    
-
 
     return (
         <>
-            <div className="mainwrap">
+        <div className="mainwrap">
                 {loader}
-                <div className="headers">
-                    <img src="./images/BOlogo.jpg" />
-                    <h3>WELCOME TO THE BOOKING OFFICE</h3>
-                </div>
                 <div className="login" id="login">
-
-                    <div className=""></div>
+                   
                     <div className="signupwrap" id="signupwrap">
-                        <div className="signup" >
-
+                        <h3>WELCOME</h3>
+                      <div className="signup" >
                             <input className="username"
                                 name="username"
                                 type="text"
@@ -125,7 +120,6 @@ const Login = () => {
                                 required
                                 onChange={handleChangename}
                             />
-
                             <input className="email"
                                 name="email"
                                 type="text"
@@ -154,14 +148,18 @@ const Login = () => {
                                 Signup
                             </button>
                             <div className="gotologin">
-                                <p>  Allready have Account</p> <a onClick={() => {
-                                    document.getElementById("loginwrap").style.translate = "0rem"
-                                    document.getElementById("signupwrap").style.translate = "-500rem"
+                                <p>  Allready have Account <a onClick={() => {
+                                        document.getElementById("bg3").style.translate="-350px"
+                                        document.getElementById("signupwrap").style.translate="-350px"
+                                        document.getElementById("loginwrap").style.translate="-350px"
                                 }}>Login</a>
+                                </p>
                             </div>
                         </div>
                     </div>
+                    <img className="bg3" id="bg3" src="./images/bg3.jpg" alt=" "/>
                     <div className="loginwrap" id="loginwrap">
+                        <h3>WELCOME BACK</h3>
                         <div className="loginmain" >
                             <input className="email"
                                 name="email"
@@ -180,16 +178,20 @@ const Login = () => {
                             <button onClick={() => login()}>
                                 Login
                             </button>
-                            <div className="gotosignup" >
-                                <p>  Not have Account </p> <a onClick={() => {
-                                    document.getElementById("loginwrap").style.translate = "500rem"
-                                    document.getElementById("signupwrap").style.translate = "0rem"
+                            <div className="gotologin" >
+                                <p>  Not have Account <a onClick={() => {
+                                    document.getElementById("bg3").style.translate="0px"
+                                    document.getElementById("signupwrap").style.translate="0px"
+                                    document.getElementById("loginwrap").style.translate="0px"
                                 }}>SignUp</a>
+                                </p> 
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+         
+        </div>
 
         </>
     )

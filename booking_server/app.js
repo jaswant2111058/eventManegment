@@ -12,11 +12,14 @@ const  {Server} = require("socket.io")
 const indexRouter = require('./routes/indexRouter');
 const authRouter = require('./routes/userRouter');
 const imagesRouter = require('./routes/imagesRouter');
+const eventRouter = require('./routes/eventRouter');
+const searchRouter = require('./routes/searchRouter');
+const payment = require('./routes/paymentsRouter')
 
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
+const io = new Server(httpServer,{
     cors: {
       origin: "*",  
       methods: ["GET", "POST"]
@@ -41,9 +44,13 @@ mongoose.connect(process.env.DB_URI, {
 })
     .then(() => console.log("Connected to MongoDB"))
     .catch(err => console.log(err));
+
+
+
+    
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "*",
         exposedHeaders: 'Authorization'
     })
 );
@@ -57,10 +64,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/', authRouter);
 app.use('/', imagesRouter);
+app.use('/', eventRouter);
+app.use('/', searchRouter);
+
+app.use('/', payment);
 
 
 
 httpServer.listen(process.env.PORT || '5000', () => {
     console.log(`Server started at port ${process.env.PORT || '5000'}`);
 });
-// module.exports = app;

@@ -1,49 +1,35 @@
 import "./card.css"
+import { FaStar } from "react-icons/fa"
+import { useNavigate } from "react-router-dom"
 
-const Cards =()=>{
-    return(
+const Cards = ({ imgUrl, rating, votes, name, type, _id }) => {
+
+    const navigate = useNavigate();
+
+    return (
         <>
-        <div className="recents">
-            <h2>
-                Recents On going
-            </h2>
 
-        </div>
-            <div className="cards1">
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-            </div>
-        <div className="nerayou recents">
-            <h2>
-                Events Near You
-            </h2>
-        </div>
-        <div className="cards1">
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-            </div>
-            <div className="recents">
-            <h2>
-                Top Searched
-            </h2>
+            <div className="cardMain" onClick={() => { navigate(`/bookevent/${_id}`) }}>
+                <div className="cardImages-wrapper">
+                    <img className="card-images" src={imgUrl ? `https://eventbookingserver.onrender.com/img/${imgUrl}` : "./images/card-1.jpg"} alt="coming" />
+                </div>
+                <div className="rating-votes">
+                    <div className="rating">
+                        <FaStar /> {rating ? rating : "4.5/5"}
+                    </div>
+                    <div className="votes">
+                        {votes ? votes : "4.5"} k Votes
+                    </div>
+                </div>
+                <div className="show-name">
+                    {name ? name : "Mera Naam Ballu"}
+                </div>
+                <div className="show-type">
+                    {type ? type : "Comedy/Drama/Action"}
+                </div>
 
-        </div>
-            <div className="cards1">
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
-                <img src="./images/3.png"/>
             </div>
+
         </>
     )
 }

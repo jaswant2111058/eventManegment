@@ -3,7 +3,6 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const imagesController = require('../controllers/imagesController')
 const multer = require("multer");
-const { use } = require('./indexRouter');
 
 const  storage = multer.diskStorage({
 	destination: (req, file, cb) => {
@@ -17,7 +16,7 @@ const upload = multer({storage : storage });
 
 
 router.post('/upload', upload.single('image'),
-userController.authMiddleware,
+//userController.authMiddleware,
 imagesController.upload
 );
 router.get('/img/:_id', 

@@ -1,5 +1,6 @@
 const paymentdetails = require("../models/paymentdetails");
 const tickets = require("../models/tickets");
+const Razorpay = require('razorpay')
 const crypto = require("crypto");
 var instance = new Razorpay({
     key_id: process.env.KEY_ID,
@@ -7,30 +8,31 @@ var instance = new Razorpay({
   });
   
 
-exports.createorderid = async(req, res, next) =>{
+exports.create_order_id = async(req, res, next) =>{
     try {
         const {
             amount,
-            ticket_id,
             email,
         } = req.body
-        let options = {
+
+        console.log(req.body)
+        const options = {
             amount: amount,  // amount in the smallest currency unit
             currency: "INR",
             receipt: "order_rcptid_11"
           };
-          instance.orders.create(options, async function(err, order_id) {
+          console.log(options)
+          instance.orders.create(options, async function(err, order) {
             const  obj = {
                 amount,
-                ticket_id,
                 email,
-                order_id,
+                order_id:order.id,
                 verification:false,
             }
-
+           
             const data = new paymentdetails(obj)
-               const detail= await data.save();
-            res.status(200).send({detail});
+            await data.save();
+            res.status(200).send(order.id);
           }) 
         
     } catch (error) {
@@ -40,32 +42,28 @@ exports.createorderid = async(req, res, next) =>{
     }
 } 
 
-exports.paymentverify = async(req, res) => {
+exports.payment_verify = async(req, res) => {
     try {
         const {
             order_id,
             payment_id,
             signature,
-            ticket_id
             } = req.body
-
+            console.log(req.body)
         let body = order_id + "|" + payment_id;
         var expectedSignature = crypto.createHmac('sha256',process.env.KEY_SECRET)
         .update(body.toString())
         .digest('hex');
         var response = {"signatureIsValid":"false"}
         if(expectedSignature === signature){
-            await paymentdetails.updateOneOne({order_id},{payment_id,signature,verification:true})
-            await tickets.updateOne({_id:ticket_id},{status:true})
-
-            // update ticket avalability;
-            res.status(200).send({msg:"booked"});
+            await paymentdetails.updateOne({order_id},{payment_id,signature,verification:true})
+            res.status(200).send(true);
         }
         else{
-            res.status(400).send({msg:"some thing went wrong"});
+            res.status(400).send(false);
         }  
-       // res.status(400).send({msg:"some thing went wrong"});
     } catch (error) {
+        console.log(error)
         res.status(500).json({
             message : error.message
         })
