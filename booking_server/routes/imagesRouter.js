@@ -19,9 +19,8 @@ router.post('/upload', upload.single('image'),
 //userController.authMiddleware,
 imagesController.upload
 );
-router.get('/img/:_id',
+router.get('/img/:_id', 
     imagesController.preview
 );
-
 
 module.exports = router;
