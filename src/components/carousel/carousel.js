@@ -1,10 +1,11 @@
 
+import { useNavigate } from "react-router-dom";
 import "./carousel.css"
 import { useState,useEffect } from "react";
 
 const Carousel=()=>{
     
-
+    const navigate = useNavigate();
     const[num, setNum]=useState(0);
       function transisition(value){
         document.getElementById("images").scrollLeft = (window.innerWidth)*(value*0.8220) + window.innerWidth*0.75 ;
@@ -28,7 +29,7 @@ const Carousel=()=>{
     
     return(
         <>
-        <div className="carousel">
+        <div onClick={() => { navigate('/commingsoon') }} className="carousel">
         <div className="images" id="images">
             {/* <img className={images2[num[1]]} src={images[num[0]]}/>
             <img className={images2[num[2]]} src={images[num[1]]}/>

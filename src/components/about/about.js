@@ -22,7 +22,6 @@ const About = () => {
                             <div className="div">Plan Events</div>
                             <p className="text-wrapper">Create and Set Up<br />Sell Tickets<br />Online RSVP <br />Online Events</p>
                         </div>
-
                         <div className="my-account">
                             <div className="div">Office</div>
                             <p className="text-wrapper">

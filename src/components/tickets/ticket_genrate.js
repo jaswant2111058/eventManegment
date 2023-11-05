@@ -15,7 +15,7 @@ const TicketGenrator = () => {
                         <img className="logo" src="./images/logo2.png" alt="" />
                     </div>
                     <div className="ticket_detail">
-                        <img src={`http://localhost:5000/img/${ticket?.img ? ticket.img : "6537f1a015a4f835b862ae97"}`} />
+                        <img src={`https://eventbookingserver.onrender.com/img/${ticket?.img ? ticket.img : "6537f1a015a4f835b862ae97"}`} />
                         <div>
                             <div className='event_name_ticket'>
                                 {ticket?.event_name}

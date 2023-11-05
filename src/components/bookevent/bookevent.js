@@ -18,7 +18,7 @@ const BookEvent = () => {
 
         async function loadCards() {
             try {
-                const res = await axios.get(`http://localhost:5000/eventid/${event_id}`)
+                const res = await axios.get(`https://eventbookingserver.onrender.com/eventid/${event_id}`)
                 if (res) {
                     setLoadData(res.data)
                 }
@@ -48,7 +48,7 @@ const BookEvent = () => {
                             <img src='./images/corosel4.avif' alt='' />
                         </div>
                         <div className='booking_img2'>
-                            <img src={loadData ? `http://localhost:5000/img/${loadData.img}` : ""} alt='' />
+                            <img src={loadData ? `https://eventbookingserver.onrender.com/img/${loadData.img}` : ""} alt='' />
                             <div className='booking_about'>
                                 <div className='event_name'>
                                     {loadData ? loadData.name : "...."}

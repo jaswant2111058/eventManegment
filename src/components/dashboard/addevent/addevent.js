@@ -11,7 +11,7 @@ const AddEvent = () => {
     const [imgurl, setImgurl] = useState([])
     const [formData, setFormData] = useState({})
   //  const [saveData, setsaveData] = useState()
-    const baseURL = "http://localhost:5000"
+    const baseURL = "https://eventbookingserver.onrender.com"
 
     async function upload() {
         startLoading()
@@ -110,7 +110,7 @@ const AddEvent = () => {
         }
         console.log(data);
         try {
-            await axios.post("http://localhost:5000/addevent", data,
+            await axios.post("https://eventbookingserver.onrender.com/addevent", data,
                 {
                     headers: {
                         'Authorization': `${user.token}`

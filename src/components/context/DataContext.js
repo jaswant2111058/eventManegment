@@ -12,7 +12,7 @@ export const DataProvider = ({ children }) => {
   const [isLoading, setLoading] = useState(false);
   const[scanResult,setScanResult]=useState(null)
   const [user,setUser]=useState({})
-  const baseURL = "http://localhost:5000"
+  const baseURL = "https://eventbookingserver.onrender.com"
   const startLoading = () => {
     setLoading(true);
   };
@@ -23,7 +23,7 @@ export const DataProvider = ({ children }) => {
   useEffect(()=>{
       const isUser = sessionStorage.getItem("user")
       setUser(isUser?JSON.parse(isUser):"")
-  },[user])
+  },[])
   useEffect(() => {  
     const performSearch = async () => {
       try {

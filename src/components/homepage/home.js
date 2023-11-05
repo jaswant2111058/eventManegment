@@ -17,7 +17,7 @@ const Home = () => {
 
         async function loadCards() {
             try {
-                const res = await axios.get("http://localhost:5000/eventList")
+                const res = await axios.get("https://eventbookingserver.onrender.com/eventList")
                 if (res) {
                     setLoadData(res.data)
                 }
@@ -36,11 +36,28 @@ const Home = () => {
     }, [])
 
 
+    const loader =() => {
+
+        return(
+            <>
+                <div className="loader-main">
+                    <div className="loader-inner">
+                      <img src="./images/loading-gif.gif" alt=""/>
+                    </div>
+                </div>
+
+            </>
+        )
+   
+    }
+
+
     return (
 
         <>
             <Navbar />
             <Carousel />
+            {loadData?"":loader()}
             <div className="card-main">
                 <div className="recents-cards">
                     <h1>

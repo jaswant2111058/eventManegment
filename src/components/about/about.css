@@ -148,5 +148,20 @@
     line-height: 22.4px;
     white-space: nowrap;
   }
+  @media (max-width: 650px) {
+   .footer{
+    display: flex;
+    flex-wrap: wrap;
+   }
+    
+}
+
+/* Responsive styles for tablet */
+@media (min-width: 650px) and (max-width: 1024px) {
+  .footer{
+    display: flex;
+    flex-wrap: wrap;
+   }
+}
 
   

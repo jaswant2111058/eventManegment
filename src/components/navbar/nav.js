@@ -73,7 +73,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="nav2">
-                    <div className="left">
+                    <div onClick={() => { navigate('/commingsoon') }} className="left">
                         <p>Movies</p>
                         <p>Streams</p>
                         <p>Events</p>

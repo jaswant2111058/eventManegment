@@ -8,7 +8,7 @@ export default function Payment({email,amount,loadData, seat }) {
     const navigate = useNavigate();
     console.log(email,amount)
     const handlePayment =  async () => {
-        const order = await axios.post("http://localhost:5000/createorder", {
+        const order = await axios.post("https://eventbookingserver.onrender.com/createorder", {
             email: email,
             amount:Number(amount)
         })
@@ -28,7 +28,7 @@ export default function Payment({email,amount,loadData, seat }) {
                     payment_id:res.razorpay_payment_id,
                     signature:res.razorpay_signature
                 }
-                const response = await axios.post("http://localhost:5000/paymentverification", details)
+                const response = await axios.post("https://eventbookingserver.onrender.com/paymentverification", details)
                 console.log(response.data)
                 if (response.data) {
                     const data = {
@@ -44,7 +44,7 @@ export default function Payment({email,amount,loadData, seat }) {
                         email: email
                     }
 
-                    await axios.post("http://localhost:5000/bookticket", data).then((res, err) => {
+                    await axios.post("https://eventbookingserver.onrender.com/bookticket", data).then((res, err) => {
                         if (err) {
                             window.alert(err)
                         }

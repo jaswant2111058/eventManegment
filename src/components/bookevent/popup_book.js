@@ -13,7 +13,6 @@ const Popup = ({ seat_detail }) => {
     const [totalAmount,setTotalAmount]= useState(0)
     console.log(seat_detail)
     function handleChange(e) {
-
         const { name, value } = e.target;
         setQuantity((prevData) => ({
             ...prevData,
@@ -52,6 +51,8 @@ const Popup = ({ seat_detail }) => {
 
     return (
         <>
+
+        
             <div className="popup_main" id="popup_main">
                 <div className="popup_close">
                     <p><FaWindowClose onClick={() => {
@@ -168,11 +169,11 @@ const Popup = ({ seat_detail }) => {
 
                         </div>
                         <div className="priview_all">
-                            <div className="select_seat">
+                            <div className="select_seat_">
                                 <h2>Ticket Priview</h2>
                             </div>
                             <div className='priview_wrapper'>
-                                <img className="preview_img" src={seat_detail?.loadData ? `http://localhost:5000/img/${seat_detail?.loadData.img}` : ""} alt='' />
+                                <img className="preview_img" src={seat_detail?.loadData ? `https://eventbookingserver.onrender.com/img/${seat_detail?.loadData.img}` : ""} alt='' />
                                 <div className='priview_about'>
                                     <div className='event_name'>
                                         {seat_detail?.loadData ? seat_detail?.loadData.name : "...."}
@@ -203,7 +204,7 @@ const Popup = ({ seat_detail }) => {
                     <div className="popup_bottom_nav">
                         <div>
                             <button> </button>
-                            <button onClick={() => { document.getElementById("popup_wrapper").style.translate = '-550px' }}><FaCircleArrowRight /> </button>
+                            <button onClick={() => { document.getElementById("popup_wrapper").style.translate = '-350px' }}><FaCircleArrowRight /> </button>
                         </div>
                         <div>
                             <button onClick={() => { document.getElementById("popup_wrapper").style.translate = '0px' }}> <FaCircleArrowLeft /></button>

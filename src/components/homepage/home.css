@@ -21,3 +21,26 @@
    display: none;
 
 }
+.loader-inner>img{
+    width: 200px;
+}
+.loader-inner{
+   width: 100vw;
+   position: fixed;
+   display: flex;
+   justify-content: center;
+}
+
+@media (max-width: 650px) {
+   
+    .avaliable-cards {
+       display: flex;
+       justify-content: center;
+       flex-wrap: wrap;
+    }
+}
+
+/* Responsive styles for tablet */
+@media (min-width: 650px) and (max-width: 1024px) {
+
+}

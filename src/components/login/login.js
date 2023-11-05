@@ -14,7 +14,8 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [repass, setRepass] = useState('');
-    const baseURL = "http://localhost:5000"
+    const baseURL = "https://eventbookingserver.onrender.com"
+    
 
     const signup = async () => {
         if (password !== repass && username && email) {

@@ -3,17 +3,23 @@ import "./dashboardshow.css"
 import { TbDots } from "react-icons/tb";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useData } from "../../context/DataContext"
 
 
 const DashboardShow = () => {
 
     const [events, setEvents] = useState([]);
     const [eventDetails, setEventDetails] = useState({});
+    const { user } = useData()
+
+
+    
 
     useEffect(() => {
-        axios.post('http://localhost:5000/getevents', { user_id: "65243cea544688418b07bed5" }).then((res, err) => {
+        try{
+        axios.post('https://eventbookingserver.onrender.com/getevents', { user_id:user?.user_id?user?.user_id: "65243cea544688418b07bed5" }).then((res, err) => {
             if (res) {
-                axios.post('http://localhost:5000/getevents/details', { events: res.data }).then((res, err) => {
+                axios.post('https://eventbookingserver.onrender.com/getevents/details', { events: res.data }).then((res, err) => {
                     if (res) {
                         setEvents(res.data)
                         setEventDetails(res.data[0])
@@ -21,7 +27,13 @@ const DashboardShow = () => {
                 })
             }
         })
+    }
+    catch(e){
+        console.log(e)
+    }
     }, [])
+
+
     return (
         <>
             <div className="eventMain">
@@ -72,7 +84,7 @@ const DashboardShow = () => {
                     </div>
                     <div className="dashImage">
                         <h3>Event Images</h3>
-                        <img src={`http://localhost:5000/img/${eventDetails.img}`}/>
+                        <img src={`https://eventbookingserver.onrender.com/img/${eventDetails.img}` } alt=""/>
                     </div>
                 </div>
                 <div className="bookingDetail">
