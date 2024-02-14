@@ -9,9 +9,10 @@ const AddEvent = () => {
 
 
     const [imgurl, setImgurl] = useState([])
+    console.log(imgurl)
     const [formData, setFormData] = useState({})
   //  const [saveData, setsaveData] = useState()
-    const baseURL = "http://eventbookingserver.onrender.com"
+    const baseURL = "http://localhost:5000"
 
     async function upload() {
         startLoading()

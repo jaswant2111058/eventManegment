@@ -11,15 +11,21 @@ const TicketGenrator = () => {
         <>
             <div className="ticket_main">
                 <div className="ticket_wrapper">
+
                     <div className="ticket_logo">
                         <img className="logo" src="./images/logo2.png" alt="" />
+                    </div>
+                    <div className="qrcode">
+
+                        <QRCode value={ticket?.ticket_hash ? ticket.ticket_hash : "Jassi"} size={240} />
+                    </div>
+                    <div className='event_name_ticket'>
+                        {ticket?.event_name}
                     </div>
                     <div className="ticket_detail">
                         <img src={`https://eventbookingserver.onrender.com/img/${ticket?.img ? ticket.img : "6537f1a015a4f835b862ae97"}`} />
                         <div>
-                            <div className='event_name_ticket'>
-                                {ticket?.event_name}
-                            </div>
+
                             <div className="event_date">
                                 <p><AiFillMail /></p>
                                 {ticket?.email}
@@ -36,10 +42,7 @@ const TicketGenrator = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="qrcode">
 
-                        <QRCode value={ticket?.ticket_hash ? ticket.ticket_hash : "Jassi"} size={240} />
-                    </div>
                     <div className="ticket_print">
                         <button onClick={window.print}>Print</button>
                     </div>
